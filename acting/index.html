@@ -38,11 +38,15 @@
         nav a { color: var(--muted); font-family: Arial, sans-serif; font-size: .72rem; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
         nav a:hover, nav a:focus { color: var(--accent); }
 
-        .intro { padding: clamp(58px, 10vw, 130px) 0 42px; }
+        .intro { align-items: end; display: grid; gap: clamp(32px, 7vw, 96px); grid-template-columns: minmax(0, 1fr) minmax(280px, .65fr); padding: clamp(58px, 10vw, 130px) 0 42px; }
+        .intro-copy { grid-column: 1; grid-row: 1; }
+        .intro-portrait { grid-column: 2; grid-row: 1; margin: 0; max-width: 430px; justify-self: end; width: 100%; }
+        .intro-portrait img { aspect-ratio: 4 / 5; display: block; object-fit: cover; width: 100%; }
         .eyebrow { color: var(--accent); font-family: Arial, sans-serif; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
         h1 { font-size: clamp(3.5rem, 10vw, 8rem); font-weight: normal; letter-spacing: -.04em; line-height: .9; margin: 16px 0 24px; }
-        .location { color: var(--accent); font-family: Arial, sans-serif; font-size: .78rem; letter-spacing: .16em; margin: 0 0 28px; text-transform: uppercase; }
-        .intro p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; margin: 0; max-width: 34rem; }
+        .location { color: var(--ink); font-family: Arial, sans-serif; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: bold; letter-spacing: .16em; margin: 0; text-transform: uppercase; }
+        .bio-section { border-top: 1px solid var(--line); padding: 26px 0 0; }
+        .bio-section p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; margin: 0; max-width: 40rem; }
 
         .reels-heading { align-items: baseline; border-top: 1px solid var(--line); display: flex; justify-content: space-between; margin: 72px 0 24px; padding-top: 18px; }
         .reels-heading h2 { font-size: 1.35rem; font-weight: normal; margin: 0; }
@@ -84,7 +88,8 @@
         @media (max-width: 700px) {
             header, main, footer { width: min(100% - 24px, 560px); }
             header { padding-top: 18px; }
-            .intro { padding: 70px 0 30px; }
+            .intro { display: flex; flex-direction: column; gap: 34px; padding: 40px 0 30px; }
+            .intro-portrait { max-width: none; order: -1; }
             .gallery { gap: 8px; grid-template-columns: repeat(2, 1fr); }
             .headshots-heading span { max-width: 9rem; text-align: right; }
         }
@@ -97,10 +102,16 @@
     </header>
     <main>
         <section class="intro">
-            <span class="eyebrow">Portfolio / 2026</span>
-            <h1>Acting</h1>
-            <p class="location">Based in Los Angeles</p>
-            <p class="bio">London Oliver is a bright rising talent in the film industry. His 2025 improv dating video went viral on Instagram with 2.8 million views. The video was liked by some of the biggest names in film and television, including Zoe Saldana, Olivia Wilde, and Adam Devine. London has starred in short films and commercial work. He resides in Los Angeles, California, and is represented by the Michael Zanuck Agency.</p>
+            <figure class="intro-portrait">
+                <img src="images/london-oliver-acting-headshot-blue-plaid-shirt.webp" alt="London Oliver in a blue plaid shirt">
+            </figure>
+            <div class="intro-copy">
+                <h1>London Oliver</h1>
+                <p class="location">Actor / Los Angeles</p>
+            </div>
+        </section>
+        <section class="bio-section" aria-label="About London Oliver">
+            <p>London Oliver is a bright rising talent in the film industry. His 2025 improv dating video went viral on Instagram with 2.8 million views. The video was liked by some of the biggest names in film and television, including Zoe Saldana, Olivia Wilde, and Adam Devine. London has starred in short films and commercial work. He resides in Los Angeles, California, and is represented by the Michael Zanuck Agency.</p>
         </section>
         <section aria-labelledby="reels-heading">
             <div class="reels-heading">
@@ -161,33 +172,33 @@
                 <img src="images/london-oliver-acting-headshot-blue-plaid-shirt.webp" alt="London Oliver acting headshot in a blue plaid shirt" fetchpriority="high">
                 <figcaption>Blue plaid shirt</figcaption>
             </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-cowboy.webp" data-caption="Cowboy character">
+            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-cowboy.webp" data-caption="Cowboy hat and red shirt">
                 <img src="images/london-oliver-acting-headshot-cowboy.webp" alt="London Oliver acting headshot in a cowboy hat and red shirt" loading="lazy">
-                <figcaption>The cowboy</figcaption>
+                <figcaption>Cowboy hat and red shirt</figcaption>
             </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-tie-dye.webp" data-caption="Tie-dye character">
+            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-tie-dye.webp" data-caption="Tie-dye shirt and red bandana">
                 <img src="images/london-oliver-acting-headshot-tie-dye.webp" alt="London Oliver acting headshot in colorful tie-dye clothing" loading="lazy">
-                <figcaption>Hippie character</figcaption>
+                <figcaption>Tie-dye shirt and red bandana</figcaption>
             </button>
             <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-black-suit.webp" data-caption="Black suit">
                 <img src="images/london-oliver-acting-headshot-black-suit.webp" alt="London Oliver acting headshot in a black suit" loading="lazy">
                 <figcaption>Black suit</figcaption>
             </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-camo-vest.webp" data-caption="Camo vest">
-                <img src="images/london-oliver-acting-headshot-camo-vest.webp" alt="London Oliver acting headshot in a camouflage vest and cap" loading="lazy">
-                <figcaption>Camo</figcaption>
+            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-camo-cap-and-vest.webp" data-caption="Camo cap and vest">
+                <img src="images/london-oliver-acting-headshot-camo-cap-and-vest.webp" alt="London Oliver acting headshot in a camouflage cap and dark vest" loading="lazy">
+                <figcaption>Camo cap and vest</figcaption>
             </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-hoodie-bandana.webp" data-caption="Hoodie and bandana">
+            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-hoodie-bandana.webp" data-caption="Denim hoodie and bandana">
                 <img src="images/london-oliver-acting-headshot-hoodie-bandana.webp" alt="London Oliver acting headshot in a hoodie and bandana" loading="lazy">
-                <figcaption>Hoodie and bandana</figcaption>
+                <figcaption>Denim hoodie and bandana</figcaption>
             </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-book-and-glasses.webp" data-caption="The reader">
+            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-book-and-glasses.webp" data-caption="Book and glasses">
                 <img src="images/london-oliver-acting-headshot-book-and-glasses.webp" alt="London Oliver acting headshot reading a book in glasses" loading="lazy">
-                <figcaption>The professor</figcaption>
+                <figcaption>Book and glasses</figcaption>
             </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-tweed-jacket-glasses.webp" data-caption="Tweed jacket and glasses">
-                <img src="images/london-oliver-acting-headshot-tweed-jacket-glasses.webp" alt="London Oliver acting headshot in a tweed jacket and glasses" loading="lazy">
-                <figcaption>Tweed jacket and glasses</figcaption>
+            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-ripped-shirt.webp" data-caption="Ripped white shirt">
+                <img src="images/london-oliver-acting-headshot-ripped-shirt.webp" alt="London Oliver acting headshot in a ripped white shirt" loading="lazy">
+                <figcaption>Ripped white shirt</figcaption>
             </button>
             </div>
         </section>
