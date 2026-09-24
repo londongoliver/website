@@ -24,7 +24,8 @@
             font-family: Georgia, 'Times New Roman', serif;
         }
 
-        header, main, footer { width: min(1080px, calc(100% - 40px)); margin: auto; }
+        header, main { margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        main { padding-bottom: clamp(64px, 10vw, 128px); }
 
         header {
             align-items: baseline;
@@ -40,18 +41,21 @@
         .bio-link:hover, .bio-link:focus { background: var(--ink); color: #171716; transform: translateY(-2px); }
 
         .intro { align-items: end; display: grid; gap: clamp(28px, 7vw, 112px); grid-template-columns: minmax(0, 1fr) minmax(280px, 430px); padding: clamp(70px, 12vw, 150px) 0 72px; }
-        .intro-copy { grid-column: 1; grid-row: 1; }
+        .intro-copy { grid-column: 1; grid-row: 1; min-width: 0; }
         .intro-portrait { grid-column: 2; grid-row: 1; margin: 0; max-width: 430px; justify-self: end; position: relative; width: 100%; }
-        .intro-portrait::before { border: 1px solid var(--accent); content: ''; inset: 14px -14px -14px 14px; opacity: .65; position: absolute; z-index: -1; }
-        .intro-portrait img { aspect-ratio: 4 / 5; box-shadow: 0 24px 70px rgba(0, 0, 0, .35); display: block; object-fit: cover; object-position: center; width: 100%; }
+        .intro-portrait::before { background: var(--accent); content: ''; inset: 20px 0 -20px 20px; position: absolute; z-index: 0; }
+        .intro-portrait img { aspect-ratio: 4 / 5; box-shadow: 0 24px 70px rgba(0, 0, 0, .35); display: block; object-fit: cover; object-position: center; position: relative; width: 100%; z-index: 1; }
         .eyebrow { color: var(--accent); font-family: Arial, sans-serif; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
         h1 { font-size: clamp(4rem, 11vw, 9rem); font-weight: normal; letter-spacing: -.04em; line-height: .84; margin: 18px 0 28px; max-width: 8ch; }
         .location { color: var(--ink); font-family: Arial, sans-serif; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: bold; letter-spacing: .16em; margin: 0; text-transform: uppercase; }
-        .reels-heading { margin: 36px 0 26px; text-align: center; }
-        .reels-heading h2 { color: var(--accent); font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: normal; letter-spacing: -.03em; line-height: .95; margin: 0; }
-        .reels { display: grid; gap: 24px 12px; grid-template-columns: minmax(0, 1fr); margin: auto; max-width: 800px; }
+        .reel-section { align-items: start; display: grid; gap: clamp(28px, 7vw, 100px); grid-template-columns: minmax(150px, .35fr) minmax(0, 1fr); margin-top: 56px; }
+        .reels-heading { margin: 0; padding-top: 12px; text-align: left; }
+        .reels-heading h2 { color: var(--accent); font-size: clamp(2.5rem, 6vw, 5.5rem); font-style: italic; font-weight: normal; letter-spacing: -.04em; line-height: .82; margin: 0; max-width: 4ch; }
+        .reels-heading h2::after { background: var(--accent); content: ''; display: block; height: 1px; margin-top: 28px; width: 72px; }
+        .reels { background: #24231f; border-left: 8px solid var(--accent); display: grid; gap: 24px 12px; grid-template-columns: minmax(0, 1fr); margin: 0; max-width: none; padding: clamp(12px, 2.5vw, 28px); position: relative; width: 100%; }
+        .reels::after { border: 1px solid rgba(217, 163, 95, .45); content: ''; inset: 12px -12px -12px 12px; pointer-events: none; position: absolute; z-index: -1; }
         .reel { margin: 0; }
-        .reel iframe { aspect-ratio: 16 / 9; border: 0; display: block; width: 100%; }
+        .reel iframe { aspect-ratio: 16 / 9; border: 0; box-shadow: 0 18px 36px rgba(0, 0, 0, .35); display: block; width: 100%; }
 
         .headshots { margin-top: 104px; }
         .gallery { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); }
@@ -59,20 +63,29 @@
         .portrait img { aspect-ratio: 4 / 5; display: block; object-fit: cover; transition: transform .5s ease, filter .5s ease; width: 100%; }
         .portrait:hover img, .portrait:focus-visible img { filter: brightness(.78); transform: scale(1.025); }
 
-        footer { color: var(--muted); font-family: Arial, sans-serif; font-size: .7rem; letter-spacing: .12em; margin-top: 88px; padding: 24px 0 36px; text-transform: uppercase; }
-
         dialog { background: #111; border: 1px solid var(--line); color: var(--ink); max-height: 92vh; max-width: min(92vw, 700px); padding: 0; }
         dialog::backdrop { background: rgba(0, 0, 0, .88); }
         dialog img { display: block; max-height: 86vh; max-width: 90vw; object-fit: contain; }
         .close { background: rgba(0, 0, 0, .65); border: 1px solid #777; color: white; cursor: pointer; font-size: 1.4rem; line-height: 1; padding: 8px 12px; position: absolute; right: 12px; top: 12px; }
 
+        @media (max-width: 1100px) {
+            .intro { align-items: start; display: flex; flex-direction: column; gap: 48px; }
+            .intro-portrait { align-self: center; }
+        }
+
         @media (max-width: 700px) {
-            header, main, footer { width: min(100% - 24px, 560px); }
+            header, main { width: min(100% - 32px, 560px); }
             header { padding-top: 18px; }
             .intro { display: flex; flex-direction: column; gap: 34px; padding: 40px 0 30px; }
-            .intro-portrait { max-width: none; order: -1; }
-            .intro-portrait::before { inset: 10px -10px -10px 10px; }
+            .intro-portrait { align-self: stretch; max-width: none; order: -1; }
+            .intro-portrait::before { inset: 10px 0 -10px 10px; }
             .gallery { gap: 8px; grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 1100px) {
+            .reel-section { display: block; margin-top: 48px; }
+            .reels-heading { margin-bottom: 26px; }
+            .reels-heading h2 { max-width: none; }
         }
     </style>
 </head>
@@ -92,7 +105,7 @@
                 <a class="bio-link" href="/bio/">Read bio</a>
             </div>
         </section>
-        <section aria-label="Acting reel">
+        <section class="reel-section" aria-label="Acting reel">
             <div class="reels-heading">
                 <h2>Acting Reel</h2>
             </div>
@@ -131,7 +144,6 @@
             </div>
         </section>
     </main>
-    <footer>London Oliver / Acting</footer>
     <dialog id="lightbox" aria-label="Expanded portrait">
         <button class="close" type="button" aria-label="Close image">&times;</button>
         <img id="lightbox-image" src="" alt="">
