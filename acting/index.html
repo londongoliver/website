@@ -6,6 +6,8 @@
     <meta name="description" content="Acting portfolio for London Oliver.">
     <title>Acting - London Oliver</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
         :root {
             color-scheme: dark;
             --ink: #f2efe9;
@@ -21,47 +23,70 @@
             margin: 0;
             background: radial-gradient(circle at 78% 12%, rgba(217, 163, 95, .12), transparent 28rem), var(--paper);
             color: var(--ink);
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: 'Manrope', Arial, sans-serif;
         }
 
         header, main { margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
         main { padding-bottom: clamp(64px, 10vw, 128px); }
 
         header {
-            align-items: baseline;
+            align-items: center;
             display: flex;
             justify-content: space-between;
             padding: 30px 0 18px;
         }
 
-        .identity { color: var(--ink); font-size: 1.1rem; letter-spacing: .03em; text-decoration: none; }
-        nav a { color: var(--muted); font-family: Arial, sans-serif; font-size: .72rem; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+        .identity { color: var(--ink); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(.9rem, 1.8vw, 1.2rem); font-weight: 800; letter-spacing: .12em; line-height: 1.05; max-width: 10ch; text-decoration: none; text-transform: uppercase; }
+        nav a { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
         nav a:hover, nav a:focus { color: var(--accent); }
-        .bio-link { background: var(--accent); color: #171716; display: inline-block; font-family: Arial, sans-serif; font-size: .68rem; letter-spacing: .14em; margin-top: 28px; padding: 13px 17px; text-decoration: none; text-transform: uppercase; transition: background .25s ease, transform .25s ease; }
-        .bio-link:hover, .bio-link:focus { background: var(--ink); color: #171716; transform: translateY(-2px); }
+        .main-nav { align-items: center; display: flex; gap: clamp(22px, 4vw, 64px); }
+        .main-nav a { position: relative; transition: color .25s ease; }
+        .main-nav a[aria-current="page"] { color: var(--accent); }
+        .main-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+        .main-nav a::after { background: var(--accent); bottom: -9px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: right; transition: transform .25s ease; width: 100%; }
+        .main-nav a:hover::after, .main-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+        .menu-toggle { align-items: center; background: transparent; border: 0; color: var(--ink); cursor: pointer; display: none; flex-direction: column; gap: 5px; padding: 8px 2px; }
+        .menu-toggle span { background: currentColor; display: block; height: 2px; transition: transform .25s ease, width .25s ease; width: 28px; }
+        .menu-toggle span:nth-child(2) { width: 20px; }
+        .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+        .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
+        .reel-link { background: var(--accent); border-radius: 999px; color: #171716; display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .14em; padding: 16px 24px; text-decoration: none; text-transform: uppercase; transition: background .25s ease, transform .25s ease; }
+        .intro-meta .reel-link::before { content: '▶'; display: inline-block; font-size: .72rem; margin-right: 10px; }
+        .reel-link:hover, .reel-link:focus { background: var(--ink); color: #171716; transform: translateY(-2px); }
 
-        .intro { align-items: end; display: grid; gap: clamp(28px, 7vw, 112px); grid-template-columns: minmax(0, 1fr) minmax(280px, 430px); padding: clamp(70px, 12vw, 150px) 0 72px; }
-        .intro-copy { grid-column: 1; grid-row: 1; min-width: 0; }
-        .intro-portrait { grid-column: 2; grid-row: 1; margin: 0; max-width: 430px; justify-self: end; position: relative; width: 100%; }
-        .intro-portrait::before { background: var(--accent); content: ''; inset: 20px 0 -20px 20px; position: absolute; z-index: 0; }
-        .intro-portrait img { aspect-ratio: 4 / 5; box-shadow: 0 24px 70px rgba(0, 0, 0, .35); display: block; object-fit: cover; object-position: center; position: relative; width: 100%; z-index: 1; }
-        .eyebrow { color: var(--accent); font-family: Arial, sans-serif; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
-        h1 { font-size: clamp(4rem, 11vw, 9rem); font-weight: normal; letter-spacing: -.04em; line-height: .84; margin: 18px 0 28px; max-width: 8ch; }
-        .location { color: var(--ink); font-family: Arial, sans-serif; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: bold; letter-spacing: .16em; margin: 0; text-transform: uppercase; }
-        .reel-section { align-items: start; display: grid; gap: clamp(28px, 7vw, 100px); grid-template-columns: minmax(150px, .35fr) minmax(0, 1fr); margin-top: 56px; }
+        .intro { padding: clamp(28px, 4vw, 64px) 0 72px; }
+        .intro-copy { max-width: none; }
+        h1 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: .86; margin: 18px 0 28px; max-width: 8ch; text-transform: uppercase; }
+        h1 span { display: block; }
+        h1 span:last-child { color: var(--accent); }
+        .intro-meta { align-items: center; display: flex; gap: 24px; justify-content: space-between; max-width: 850px; }
+        .location { color: var(--muted); font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; letter-spacing: .04em; margin: 0; }
+        .reel-section { align-items: start; display: grid; gap: clamp(28px, 7vw, 100px); grid-template-columns: minmax(150px, .35fr) minmax(0, 1fr); margin-top: 120px; padding: 28px clamp(16px, 3vw, 32px) 36px; }
         .reels-heading { margin: 0; padding-top: 12px; text-align: left; }
-        .reels-heading h2 { color: var(--accent); font-size: clamp(2.5rem, 6vw, 5.5rem); font-style: italic; font-weight: normal; letter-spacing: -.04em; line-height: .82; margin: 0; max-width: 4ch; }
-        .reels-heading h2::after { background: var(--accent); content: ''; display: block; height: 1px; margin-top: 28px; width: 72px; }
-        .reels { background: #24231f; border-left: 8px solid var(--accent); display: grid; gap: 24px 12px; grid-template-columns: minmax(0, 1fr); margin: 0; max-width: none; padding: clamp(12px, 2.5vw, 28px); position: relative; width: 100%; }
-        .reels::after { border: 1px solid rgba(217, 163, 95, .45); content: ''; inset: 12px -12px -12px 12px; pointer-events: none; position: absolute; z-index: -1; }
+        .reels-heading h2 { color: var(--accent); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: .82; margin: 0; max-width: 4ch; text-transform: uppercase; }
+        .reels-heading p { color: var(--muted); font-size: .95rem; line-height: 1.6; margin: 24px 0 0; max-width: 18rem; }
+        .reels-heading .reel-link { background: transparent; border-bottom: 4px solid var(--accent); border-radius: 0; color: var(--accent); margin-left: 0; margin-top: 28px; padding: 0 0 10px; width: 100%; }
+        .reels-heading .reel-link::before { content: none; }
+        .reels-heading .reel-link:hover, .reels-heading .reel-link:focus { background: transparent; color: var(--ink); transform: none; }
+        .reels { display: grid; gap: 24px 12px; grid-template-columns: minmax(0, 1fr); margin: 0; max-width: none; padding: 0; position: relative; width: 100%; }
         .reel { margin: 0; }
-        .reel iframe { aspect-ratio: 16 / 9; border: 0; box-shadow: 0 18px 36px rgba(0, 0, 0, .35); display: block; width: 100%; }
+        .reel iframe { aspect-ratio: 16 / 9; border: 0; box-shadow: 0 18px 36px rgba(0, 0, 0, .3); display: block; width: 100%; }
 
-        .headshots { margin-top: 104px; }
-        .gallery { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); }
-        .portrait { background: #252421; border: 0; cursor: zoom-in; display: block; overflow: hidden; padding: 0; position: relative; }
+        .headshots { margin-top: 0; }
+        .gallery { align-items: start; display: grid; gap: clamp(10px, 2vw, 24px); grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .portrait { background: transparent; border: 0; border-radius: 8px; cursor: zoom-in; display: block; overflow: hidden; padding: 0; position: relative; }
+        .portrait:nth-child(2) { transform: translateY(clamp(24px, 3vw, 42px)); }
+        .portrait:nth-child(3) { transform: translateY(clamp(-16px, -1vw, -8px)); }
+        .portrait:nth-child(4) { transform: translateY(clamp(12px, 2vw, 28px)); }
         .portrait img { aspect-ratio: 4 / 5; display: block; object-fit: cover; transition: transform .5s ease, filter .5s ease; width: 100%; }
         .portrait:hover img, .portrait:focus-visible img { filter: brightness(.78); transform: scale(1.025); }
+
+        .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; letter-spacing: .04em; padding: 28px 0 36px; }
+        .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        .social-links { display: flex; gap: clamp(20px, 4vw, 48px); }
+        .social-links a { color: var(--ink); font-weight: 700; text-decoration: none; }
+        .social-links a:hover, .social-links a:focus { color: var(--accent); }
 
         dialog { background: #111; border: 1px solid var(--line); color: var(--ink); max-height: 92vh; max-width: min(92vw, 700px); padding: 0; }
         dialog::backdrop { background: rgba(0, 0, 0, .88); }
@@ -69,45 +94,75 @@
         .close { background: rgba(0, 0, 0, .65); border: 1px solid #777; color: white; cursor: pointer; font-size: 1.4rem; line-height: 1; padding: 8px 12px; position: absolute; right: 12px; top: 12px; }
 
         @media (max-width: 1100px) {
-            .intro { align-items: start; display: flex; flex-direction: column; gap: 48px; }
-            .intro-portrait { align-self: center; }
+            .reel-section { display: grid; gap: clamp(12px, 5vw, 48px); grid-template-columns: clamp(90px, 25vw, 220px) minmax(0, 1fr); margin-top: 88px; }
+            .reels-heading { margin-bottom: 0; }
+            .reels-heading h2 { max-width: 4ch; }
+            .reels-heading p { font-size: .78rem; margin-top: 16px; }
+            .reels-heading .reel-link { margin-top: 18px; }
         }
 
         @media (max-width: 700px) {
             header, main { width: min(100% - 32px, 560px); }
+            .footer-inner { width: min(100% - 32px, 560px); }
             header { padding-top: 18px; }
-            .intro { display: flex; flex-direction: column; gap: 34px; padding: 40px 0 30px; }
-            .intro-portrait { align-self: stretch; max-width: none; order: -1; }
-            .intro-portrait::before { inset: 10px 0 -10px 10px; }
-            .gallery { gap: 8px; grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 1100px) {
-            .reel-section { display: block; margin-top: 48px; }
-            .reels-heading { margin-bottom: 26px; }
-            .reels-heading h2 { max-width: none; }
+            .menu-toggle { display: flex; }
+            .main-nav { align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: none; flex-direction: column; gap: 0; left: 0; padding: 8px 16px 12px; position: absolute; right: 0; text-align: left; top: 62px; z-index: 2; }
+            .main-nav a { font-size: .78rem; padding: 16px 0; }
+            .main-nav a::after { display: none; }
+            .main-nav.is-open { display: flex; }
+            .intro { padding: 24px 0 30px; }
+            .intro-meta { align-items: flex-start; flex-direction: column; gap: 18px; }
+            .intro-meta { justify-content: flex-start; max-width: none; }
+            .gallery { gap: 5px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .reel-section { margin-top: 72px; padding-left: 0; padding-right: 0; }
         }
     </style>
 </head>
 <body>
     <header>
         <a class="identity" href="/">London Oliver</a>
-        <nav aria-label="Main navigation"><a href="/">All work</a></nav>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <a href="/acting/" aria-current="page">Home</a>
+            <a href="/bio/">About</a>
+            <a href="/resume/">Resume</a>
+            <a href="/gallery/">Gallery</a>
+            <a href="/contact/">Contact</a>
+        </nav>
     </header>
     <main>
         <section class="intro">
-            <figure class="intro-portrait">
-                <img src="images/london-oliver-acting-headshot-blue-plaid-shirt.webp" alt="London Oliver in a blue plaid shirt">
-            </figure>
             <div class="intro-copy">
-                <h1>London Oliver</h1>
-                <p class="location">Actor / Los Angeles</p>
-                <a class="bio-link" href="/bio/">Read bio</a>
+                <h1><span>London</span><span>Oliver</span></h1>
+                <div class="intro-meta">
+                    <p class="location">Actor in Los Angeles</p>
+                    <a class="reel-link" href="#reel">Watch the reel</a>
+                </div>
             </div>
         </section>
-        <section class="reel-section" aria-label="Acting reel">
+        <section class="headshots" id="photos" aria-label="Selected portraits">
+            <div class="gallery">
+                <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-blue-plaid-shirt.webp">
+                    <img src="images/london-oliver-acting-headshot-blue-plaid-shirt.webp" alt="London Oliver in a blue plaid shirt" fetchpriority="high">
+                </button>
+                <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-cowboy.webp">
+                    <img src="images/london-oliver-acting-headshot-cowboy.webp" alt="London Oliver in a cowboy hat and red shirt" loading="lazy">
+                </button>
+                <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-tie-dye.webp">
+                    <img src="images/london-oliver-acting-headshot-tie-dye.webp" alt="London Oliver in tie-dye clothing and a red bandana" loading="lazy">
+                </button>
+                <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-black-suit.webp">
+                    <img src="images/london-oliver-acting-headshot-black-suit.webp" alt="London Oliver in a black suit" loading="lazy">
+                </button>
+            </div>
+        </section>
+        <section class="reel-section" id="reel" aria-label="Acting reel">
             <div class="reels-heading">
-                <h2>Acting Reel</h2>
+                <h2>Reel</h2>
+                <p>A few minutes of screen work, from comedy to character.</p>
+                <a class="reel-link" href="/bio/">More about London &rarr;</a>
             </div>
             <div class="reels">
                 <figure class="reel">
@@ -115,35 +170,16 @@
                 </figure>
             </div>
         </section>
-        <section class="headshots" aria-label="Headshots">
-            <div class="gallery">
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-blue-plaid-shirt.webp" data-caption="Blue plaid shirt">
-                <img src="images/london-oliver-acting-headshot-blue-plaid-shirt.webp" alt="London Oliver acting headshot in a blue plaid shirt" fetchpriority="high">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-cowboy.webp" data-caption="Cowboy hat and red shirt">
-                <img src="images/london-oliver-acting-headshot-cowboy.webp" alt="London Oliver acting headshot in a cowboy hat and red shirt" loading="lazy">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-tie-dye.webp" data-caption="Tie-dye shirt and red bandana">
-                <img src="images/london-oliver-acting-headshot-tie-dye.webp" alt="London Oliver acting headshot in colorful tie-dye clothing" loading="lazy">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-black-suit.webp" data-caption="Black suit">
-                <img src="images/london-oliver-acting-headshot-black-suit.webp" alt="London Oliver acting headshot in a black suit" loading="lazy">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-camo-cap-and-vest.webp" data-caption="Camo cap and vest">
-                <img src="images/london-oliver-acting-headshot-camo-cap-and-vest.webp" alt="London Oliver acting headshot in a camouflage cap and dark vest" loading="lazy">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-hoodie-bandana.webp" data-caption="Denim hoodie and bandana">
-                <img src="images/london-oliver-acting-headshot-hoodie-bandana.webp" alt="London Oliver acting headshot in a hoodie and bandana" loading="lazy">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-book-and-glasses.webp" data-caption="Book and glasses">
-                <img src="images/london-oliver-acting-headshot-book-and-glasses.webp" alt="London Oliver acting headshot reading a book in glasses" loading="lazy">
-            </button>
-            <button class="portrait" type="button" data-image="images/london-oliver-acting-headshot-ripped-shirt.webp" data-caption="Ripped white shirt">
-                <img src="images/london-oliver-acting-headshot-ripped-shirt.webp" alt="London Oliver acting headshot in a ripped white shirt" loading="lazy">
-            </button>
-            </div>
-        </section>
     </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 London Oliver</span>
+            <nav class="social-links" aria-label="Social links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </nav>
+        </div>
+    </footer>
     <dialog id="lightbox" aria-label="Expanded portrait">
         <button class="close" type="button" aria-label="Close image">&times;</button>
         <img id="lightbox-image" src="" alt="">
@@ -163,6 +199,21 @@
         document.querySelector('.close').addEventListener('click', () => lightbox.close());
         lightbox.addEventListener('click', (event) => {
             if (event.target === lightbox) lightbox.close();
+        });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        mainNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
         });
     </script>
 </body>
