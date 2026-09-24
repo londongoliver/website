@@ -28,11 +28,28 @@
         h1 { font-size: clamp(3.5rem, 10vw, 8rem); font-weight: normal; letter-spacing: -.04em; line-height: .9; margin: 16px 0 40px; }
         .bio-copy { border-top: 1px solid var(--line); padding-top: 26px; }
         .bio-copy p { color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.7; margin: 0; max-width: 42rem; }
+        .featured { border-top: 1px solid var(--line); margin-top: 72px; padding-top: 18px; }
+        .featured-heading { align-items: baseline; display: flex; justify-content: space-between; margin-bottom: 24px; }
+        .featured-heading h2 { font-size: 1.35rem; font-weight: normal; margin: 0; }
+        .featured-heading span { color: var(--muted); font-family: Arial, sans-serif; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+        .featured-content { align-items: center; background: #24231f; display: grid; gap: clamp(24px, 5vw, 72px); grid-template-columns: minmax(220px, .8fr) 1.2fr; padding: clamp(16px, 4vw, 40px); }
+        .featured-copy { padding: 12px 0; }
+        .featured-copy .eyebrow { display: block; margin-bottom: 18px; }
+        .featured-copy h3 { font-size: clamp(2rem, 4vw, 3.8rem); font-weight: normal; letter-spacing: -.03em; line-height: .95; margin: 0 0 20px; }
+        .featured-copy p { color: var(--muted); font-size: 1rem; line-height: 1.65; margin: 0; max-width: 28rem; }
+        .featured-copy details { margin-top: 28px; max-width: 28rem; }
+        .featured-copy summary { color: var(--ink); cursor: pointer; font-family: Arial, sans-serif; font-size: .68rem; letter-spacing: .14em; list-style-position: outside; text-transform: uppercase; }
+        .featured-copy summary:hover, .featured-copy summary:focus-visible { color: var(--accent); }
+        .featured-copy details[open] { border-top: 1px solid var(--line); padding-top: 16px; }
+        .featured-player { aspect-ratio: 16 / 9; min-width: 0; }
+        .featured-player iframe { border: 0; height: 100%; width: 100%; }
         footer { border-top: 1px solid var(--line); color: var(--muted); font-family: Arial, sans-serif; font-size: .7rem; letter-spacing: .12em; padding: 24px 0 36px; text-transform: uppercase; }
 
         @media (max-width: 700px) {
             header, main, footer { width: min(100% - 24px, 560px); }
             header { padding-top: 18px; }
+            .featured-content { display: flex; flex-direction: column; }
+            .featured-copy, .featured-player { width: 100%; }
         }
     </style>
 </head>
@@ -46,6 +63,29 @@
         <h1>London Oliver</h1>
         <section class="bio-copy" aria-label="About London Oliver">
             <p>London Oliver is a bright rising talent in the film industry. His 2025 improv dating video went viral on Instagram with 2.8 million views. The video was liked by some of the biggest names in film and television, including Zoe Saldana, Olivia Wilde, and Adam Devine. London has starred in short films and commercial work. He resides in Los Angeles, California, and is represented by the Michael Zanuck Agency.</p>
+        </section>
+        <section class="featured" aria-labelledby="featured-heading">
+            <div class="featured-heading">
+                <h2 id="featured-heading">Featured appearance</h2>
+                <span>VHS Dates</span>
+            </div>
+            <article class="featured-content">
+                <div class="featured-copy">
+                    <span class="eyebrow">On screen</span>
+                    <h3>VHS Dates</h3>
+                    <p>A standout appearance from London Oliver's improv dating work with VHS Dates. The short captures the quick thinking, warmth, and comic timing at the center of his on-camera presence.</p>
+                    <details>
+                        <summary>Read more</summary>
+                        <div>
+                            <p>London Oliver's improv dating video with VHS Dates went viral on Instagram in 2025, amassing 2.8 million views. The video showcased his quick thinking, warmth, and comic timing, earning praise from notable figures in the film and television industry, including Zoe Saldana, Olivia Wilde, and Adam Devine.</p>
+                            <p>The series itself became a hit, further establishing London's presence in the entertainment industry. The <a href="https://www.nytimes.com/2026/08/10/arts/vhs-dates-instagram-tapes.html" target="_blank" rel="noopener noreferrer">New York Times</a> covered the phenomenon.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="featured-player">
+                    <iframe src="https://www.youtube.com/embed/AYHnLTCapP4" title="London #207 by VHS Dates" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </article>
         </section>
     </main>
     <footer><a class="back-link" href="/acting/">Back to acting</a></footer>

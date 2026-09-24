@@ -50,18 +50,7 @@
         .reels-heading { align-items: baseline; border-top: 1px solid var(--line); display: flex; justify-content: space-between; margin: 72px 0 24px; padding-top: 18px; }
         .reels-heading h2 { font-size: 1.35rem; font-weight: normal; margin: 0; }
         .reels-heading span { color: var(--muted); font-family: Arial, sans-serif; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
-        .hero-reel { align-items: center; background: #24231f; display: grid; gap: clamp(24px, 5vw, 72px); grid-template-columns: minmax(220px, .8fr) 1.2fr; padding: clamp(16px, 4vw, 40px); }
-        .hero-reel-copy { padding: 12px 0; }
-        .hero-reel-copy .eyebrow { display: block; margin-bottom: 18px; }
-        .hero-reel-copy h3 { font-size: clamp(2rem, 4vw, 3.8rem); font-weight: normal; letter-spacing: -.03em; line-height: .95; margin: 0 0 20px; }
-        .hero-reel-copy p { color: var(--muted); font-size: 1rem; line-height: 1.65; margin: 0; max-width: 28rem; }
-        .hero-reel-copy details { margin-top: 28px; max-width: 28rem; }
-        .hero-reel-copy summary { color: var(--ink); cursor: pointer; font-family: Arial, sans-serif; font-size: .68rem; letter-spacing: .14em; list-style-position: outside; text-transform: uppercase; }
-        .hero-reel-copy summary:hover, .hero-reel-copy summary:focus-visible { color: var(--accent); }
-        .hero-reel-copy details[open] { border-top: 1px solid var(--line); padding-top: 16px; }
-        .hero-reel-player { aspect-ratio: 16 / 9; min-width: 0; }
-        .hero-reel-player iframe { border: 0; height: 100%; width: 100%; }
-        .reels { display: grid; gap: 24px 12px; grid-template-columns: repeat(2, 1fr); }
+        .reels { display: grid; gap: 24px 12px; grid-template-columns: minmax(0, 1fr); max-width: 800px; }
         .reel { margin: 0; }
         .reel iframe { aspect-ratio: 16 / 9; border: 0; display: block; width: 100%; }
         .reel figcaption { color: var(--muted); font-family: Arial, sans-serif; font-size: .68rem; letter-spacing: .1em; padding-top: 12px; text-transform: uppercase; }
@@ -115,47 +104,10 @@
                 <h2 id="reels-heading">On screen</h2>
                 <span>Selected reels / films</span>
             </div>
-            <article class="hero-reel">
-                <div class="hero-reel-copy">
-                    <span class="eyebrow">Featured appearance</span>
-                    <h3>VHS Dates</h3>
-                    <p>A standout appearance from London Oliver's improv dating work with VHS Dates. The short captures the quick thinking, warmth, and comic timing at the center of his on-camera presence.</p>
-                    <details>
-                        <summary>Read more</summary>
-                        <div>
-                            <p>London Oliver's improv dating video with VHS Dates went viral on Instagram in 2025, amassing 2.8 million views. The video showcased his quick thinking, warmth, and comic timing, earning praise from notable figures in the film and television industry, including Zoe Saldana, Olivia Wilde, and Adam Devine.</p>
-                            <p>The series itself became a hit, further establishing London's presence in the entertainment industry. The <a href="https://www.nytimes.com/2026/08/10/arts/vhs-dates-instagram-tapes.html" target="_blank" rel="noopener noreferrer">New York Times</a> covered the phenomenon.</p>
-                        </div>
-                    </details>
-                </div>
-                <div class="hero-reel-player">
-                    <iframe src="https://www.youtube.com/embed/AYHnLTCapP4" title="London #207 by VHS Dates" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </article>
             <div class="reels">
                 <figure class="reel">
                     <iframe src="https://www.youtube.com/embed/1rSbOT8Rd8Q" title="London Oliver Acting Reel" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <figcaption>Acting reel</figcaption>
-                </figure>
-                <figure class="reel">
-                    <iframe src="https://www.youtube.com/embed/X_nY2PYqrIw" title="Selin - Burn With You official music video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <figcaption>Burn With You / Music video</figcaption>
-                </figure>
-                <figure class="reel">
-                    <iframe src="https://www.youtube.com/embed/ju_i8gj-R1Q" title="Noah Noah - Belly Dance official video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <figcaption>Belly Dance / Music video</figcaption>
-                </figure>
-                <figure class="reel">
-                    <iframe src="https://www.youtube.com/embed/iWIQlyxZj6o" title="Payday - A Short Film" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <figcaption>Payday / Short film</figcaption>
-                </figure>
-                <figure class="reel">
-                    <iframe src="https://www.youtube.com/embed/5hqmbquLK9o" title="The Doritos Well" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <figcaption>The Doritos Well / Commercial</figcaption>
-                </figure>
-                <figure class="reel">
-                    <iframe src="https://www.youtube.com/embed/F8WjhLxh1nc" title="Pure Pulp" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <figcaption>Pure Pulp / Short film</figcaption>
                 </figure>
             </div>
         </section>
