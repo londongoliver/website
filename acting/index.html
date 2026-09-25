@@ -26,14 +26,14 @@
             font-family: 'Manrope', Arial, sans-serif;
         }
 
-        header, main { margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
-        main { padding-bottom: clamp(64px, 10vw, 128px); }
+        header, main { margin: 0; width: 100%; }
+        main { padding: 0 clamp(16px, 4vw, 48px) clamp(64px, 10vw, 128px); }
 
         header {
             align-items: center;
             display: flex;
             justify-content: space-between;
-            padding: 30px 0 18px;
+            padding: 30px clamp(16px, 4vw, 48px) 18px;
         }
 
         .identity { color: var(--ink); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(.9rem, 1.8vw, 1.2rem); font-weight: 800; letter-spacing: .12em; line-height: 1.05; max-width: 10ch; text-decoration: none; text-transform: uppercase; }
@@ -83,7 +83,7 @@
         .portrait:hover img, .portrait:focus-visible img { filter: brightness(.78); transform: scale(1.025); }
 
         .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; letter-spacing: .04em; padding: 28px 0 36px; }
-        .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: 0; padding: 0 clamp(16px, 4vw, 48px); width: 100%; }
         .social-links { display: flex; gap: clamp(20px, 4vw, 48px); }
         .social-links a { color: var(--ink); font-weight: 700; text-decoration: none; }
         .social-links a:hover, .social-links a:focus { color: var(--accent); }
@@ -102,9 +102,10 @@
         }
 
         @media (max-width: 700px) {
-            header, main { width: min(100% - 32px, 560px); }
-            .footer-inner { width: min(100% - 32px, 560px); }
-            header { padding-top: 18px; }
+            header, main { width: 100%; }
+            header { padding: 18px 16px 18px; }
+            main { padding-left: 16px; padding-right: 16px; }
+            .footer-inner { padding-left: 16px; padding-right: 16px; width: 100%; }
             .menu-toggle { display: flex; }
             .main-nav { align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: none; flex-direction: column; gap: 0; left: 0; padding: 8px 16px 12px; position: absolute; right: 0; text-align: left; top: 62px; z-index: 2; }
             .main-nav a { font-size: .78rem; padding: 16px 0; }
