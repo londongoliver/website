@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Acting resume for London Oliver.">
-    <title>Resume - London Oliver</title>
+    <meta name="description" content="Download London Oliver's acting headshot and resume.">
+    <title>Headshot &amp; Resume - London Oliver</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
@@ -51,6 +51,23 @@
         .resume-actions a { background: var(--accent); border-radius: 999px; color: #171716; font-size: .68rem; font-weight: 700; letter-spacing: .14em; padding: 16px 24px; text-decoration: none; text-transform: uppercase; }
         .resume-actions a:last-child { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
         .resume-actions a:hover, .resume-actions a:focus { background: var(--ink); border-color: var(--ink); color: #171716; }
+        .download-main { margin: auto; max-width: 920px; padding: clamp(36px, 7vw, 88px) 0 clamp(64px, 10vw, 128px); width: min(920px, calc(100% - clamp(32px, 7vw, 96px))); }
+        .download-page { text-align: center; }
+        .download-title { font-size: clamp(2.8rem, 7vw, 5.4rem); line-height: .96; margin: 0 auto 18px; max-width: none; }
+        .download-title span { display: inline; }
+        .download-lede { color: var(--muted); line-height: 1.7; margin: 0 auto clamp(32px, 5vw, 56px); max-width: 38rem; }
+        .download-grid { align-items: center; display: grid; gap: clamp(32px, 7vw, 88px); grid-template-columns: minmax(220px, .9fr) minmax(240px, 1.1fr); margin: auto; max-width: 780px; text-align: left; }
+        .headshot-download { margin: 0; }
+        .headshot-download > a:first-child { display: block; position: relative; text-decoration: none; }
+        .headshot-download > a:first-child::after { border: 1px solid rgba(255, 255, 255, .28); content: ''; inset: 10px -10px -10px 10px; pointer-events: none; position: absolute; }
+        .headshot-download img { aspect-ratio: 4 / 5; display: block; object-fit: cover; position: relative; width: 100%; z-index: 1; }
+        .download-caption { color: var(--muted); font-size: .75rem; letter-spacing: .12em; margin: 24px 0 10px; text-transform: uppercase; }
+        .download-card { border-top: 1px solid var(--line); padding-top: 18px; }
+        .download-card h2 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 12px; }
+        .download-card p { color: var(--muted); line-height: 1.7; margin: 0 0 24px; }
+        .download-link { background: var(--accent); border-radius: 999px; color: #171716; display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .12em; padding: 15px 21px; text-decoration: none; text-transform: uppercase; transition: background .2s ease, color .2s ease; }
+        .download-link:hover, .download-link:focus-visible { background: var(--ink); color: #171716; }
+        .resume-file-icon { align-items: center; border: 1px solid var(--line); color: var(--accent); display: flex; font-family: 'Montserrat', Arial, sans-serif; font-size: .78rem; font-weight: 800; height: 76px; justify-content: center; letter-spacing: .16em; margin-bottom: 24px; width: 62px; }
         .credit-block + .credit-block { margin-top: 48px; }
         .credit-block h2 { color: var(--accent); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; letter-spacing: .08em; margin: 0 0 18px; text-transform: uppercase; }
         .credits { border-top: 1px solid var(--line); margin: 0; padding: 0; width: 100%; }
@@ -66,6 +83,9 @@
 
         @media (max-width: 700px) {
             header, main { width: min(100% - 32px, 560px); }
+            .download-main { padding-top: 36px; width: min(100% - 32px, 560px); }
+            .download-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .headshot-download { margin-bottom: 12px; }
             .footer-inner { width: min(100% - 32px, 560px); }
             header { padding-top: 18px; }
             .menu-toggle { display: flex; }
@@ -103,55 +123,27 @@
             <a href="/acting/contact/">Contact</a>
         </nav>
     </header>
-    <main>
-        <section class="resume-hero" aria-labelledby="resume-heading">
-            <figure class="resume-portrait">
-                <img src="../images/london-oliver-acting-headshot-black-suit.webp" alt="London Oliver in a black suit" fetchpriority="high">
-            </figure>
-            <div>
-                <h1 id="resume-heading"><span>Acting</span><span>Resume</span></h1>
-                <p class="resume-lede">Los Angeles actor with a background in improv, short films, and commercial work. Represented by the Michael Zanuck Agency.</p>
-                <dl class="vitals">
-                    <div>
-                        <dt>Location</dt>
-                        <dd>Los Angeles, CA</dd>
-                    </div>
-                    <div>
-                        <dt>Representation</dt>
-                        <dd><a href="https://www.mza.agency/" target="_blank" rel="noopener noreferrer">Michael Zanuck Agency</a></dd>
-                    </div>
-                    <div>
-                        <dt>Reel</dt>
-                        <dd><a href="/acting/#reel">Watch the reel</a></dd>
-                    </div>
-                    <div>
-                        <dt>Contact</dt>
-                        <dd><a href="/acting/contact/">Booking inquiries</a></dd>
-                    </div>
-                </dl>
-                <div class="resume-actions">
-                    <a href="/acting/gallery/">Headshots</a>
-                    <a href="/acting/contact/">Get in touch</a>
+    <main class="download-main">
+        <section class="download-page" aria-labelledby="resume-heading">
+            <h1 class="download-title" id="resume-heading"><span>Headshot &amp;</span> <span>Resume</span></h1>
+            <p class="download-lede">Download London Oliver’s acting headshot and resume.</p>
+            <div class="download-grid">
+                <figure class="headshot-download">
+                    <a href="/acting/images/london-oliver-headshot.jpg" download="London-Oliver-Headshot.jpg" aria-label="Download London Oliver's headshot">
+                        <img src="/acting/images/london-oliver-headshot.jpg" alt="London Oliver acting headshot in a black suit" fetchpriority="high">
+                    </a>
+                    <figcaption>
+                        <p class="download-caption">London Oliver · Acting Headshot</p>
+                        <a class="download-link" href="/acting/images/london-oliver-headshot.jpg" download="London-Oliver-Headshot.jpg">Download headshot (JPG)</a>
+                    </figcaption>
+                </figure>
+                <div class="download-card">
+                    <div class="resume-file-icon" aria-hidden="true">PDF</div>
+                    <h2>Acting Resume</h2>
+                    <p>Download a one-page resume with London’s screen, television, video, and modeling credits, plus special skills and self-recording details.</p>
+                    <a class="download-link" href="/acting/resume/london-oliver-acting-resume.pdf" download="London-Oliver-Acting-Resume.pdf">Download resume (PDF)</a>
                 </div>
             </div>
-        </section>
-        <section class="credit-block" aria-labelledby="digital-heading">
-            <h2 id="digital-heading">Digital</h2>
-            <div class="credits">
-                <div class="row">
-                    <span class="project">VHS Dates — London #207</span>
-                    <span class="role">Featured</span>
-                    <span class="meta">Instagram, 2025</span>
-                </div>
-            </div>
-        </section>
-        <section class="credit-block" aria-labelledby="film-heading">
-            <h2 id="film-heading">Film &amp; Commercial</h2>
-            <p class="credit-note">Select short film and commercial credits are available through representation.</p>
-        </section>
-        <section class="credit-block" aria-labelledby="skills-heading">
-            <h2 id="skills-heading">Special Skills</h2>
-            <p class="credit-note">Improv, comedy, on-camera commercial, Los Angeles local hire.</p>
         </section>
     </main>
     <footer class="site-footer">
