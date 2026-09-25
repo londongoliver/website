@@ -41,9 +41,6 @@
         .gallery-intro p { color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.6; margin: 0; max-width: 38rem; }
         .gallery { align-items: start; display: grid; gap: clamp(18px, 2.5vw, 34px); grid-template-columns: repeat(4, minmax(0, 1fr)); }
         .portrait { background: transparent; border: 0; border-radius: 8px; cursor: zoom-in; display: block; overflow: hidden; padding: 0; position: relative; }
-        .portrait:nth-child(2), .portrait:nth-child(6) { transform: translateY(clamp(28px, 4vw, 64px)); }
-        .portrait:nth-child(3), .portrait:nth-child(7) { transform: translateY(clamp(-18px, -1.5vw, -8px)); }
-        .portrait:nth-child(4), .portrait:nth-child(8) { transform: translateY(clamp(16px, 3vw, 48px)); }
         .portrait img { aspect-ratio: 4 / 5; display: block; object-fit: cover; transition: transform .5s ease, filter .5s ease; width: 100%; }
         .portrait:hover img, .portrait:focus-visible img { filter: brightness(.78); transform: scale(1.025); }
         .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; letter-spacing: .04em; padding: 28px 0 36px; }
@@ -68,9 +65,6 @@
             .main-nav.is-open { display: flex; }
             main { padding-top: 28px; }
             .gallery { gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .portrait:nth-child(2), .portrait:nth-child(6) { transform: translateY(22px); }
-            .portrait:nth-child(3), .portrait:nth-child(7) { transform: translateY(-8px); }
-            .portrait:nth-child(4), .portrait:nth-child(8) { transform: translateY(18px); }
         }
     </style>
 </head>

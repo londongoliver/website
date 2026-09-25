@@ -60,7 +60,8 @@
         h1 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: .86; margin: 18px 0 28px; max-width: 8ch; text-transform: uppercase; }
         h1 span { display: block; }
         h1 span:last-child { color: var(--accent); }
-        .intro-meta { align-items: center; display: flex; gap: 24px; justify-content: space-between; max-width: 850px; }
+        .intro-meta { align-items: center; display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 850px; }
+        .intro-meta > .reel-link { font-size: clamp(.68rem, 1.1vw, .9rem); justify-self: start; padding: clamp(16px, 1.6vw, 22px) clamp(24px, 2.4vw, 36px); }
         .location { color: var(--muted); font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; letter-spacing: .04em; margin: 0; }
         .reel-section { align-items: start; display: grid; gap: clamp(28px, 7vw, 100px); grid-template-columns: minmax(150px, .35fr) minmax(0, 1fr); margin-top: 120px; padding: 28px clamp(16px, 3vw, 32px) 36px; }
         .reels-heading { margin: 0; padding-top: 12px; text-align: left; }
@@ -112,7 +113,7 @@
             .main-nav a::after { display: none; }
             .main-nav.is-open { display: flex; }
             .intro { padding: 24px 0 30px; }
-            .intro-meta { align-items: flex-start; flex-direction: column; gap: 18px; }
+            .intro-meta { align-items: flex-start; display: flex; flex-direction: column; gap: 18px; }
             .intro-meta { justify-content: flex-start; max-width: none; }
             .gallery { gap: 5px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
             .reel-section { gap: 20px; grid-template-columns: minmax(0, 1fr); margin-top: 72px; padding-left: 0; padding-right: 0; }
