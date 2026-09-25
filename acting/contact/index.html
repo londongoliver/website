@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact London Oliver for acting inquiries.">
+    <title>Contact - London Oliver</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            color-scheme: dark;
+            --ink: #f2efe9;
+            --muted: #aaa49b;
+            --line: #3c3a36;
+            --paper: #171716;
+            --accent: #d9a35f;
+        }
+
+        * { box-sizing: border-box; }
+        body { margin: 0; background: radial-gradient(circle at 78% 12%, rgba(217, 163, 95, .12), transparent 28rem), var(--paper); color: var(--ink); font-family: 'Manrope', Arial, sans-serif; }
+        header, main { margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        header { align-items: center; display: flex; justify-content: space-between; padding: 30px 0 18px; }
+        .identity { color: var(--ink); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(.9rem, 1.8vw, 1.2rem); font-weight: 800; letter-spacing: .12em; line-height: 1.05; max-width: 10ch; text-decoration: none; text-transform: uppercase; }
+        nav a { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+        nav a:hover, nav a:focus { color: var(--accent); }
+        .main-nav { align-items: center; display: flex; gap: clamp(22px, 4vw, 64px); }
+        .main-nav a { position: relative; transition: color .25s ease; }
+        .main-nav a[aria-current="page"] { color: var(--accent); }
+        .main-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+        .main-nav a::after { background: var(--accent); bottom: -9px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: right; transition: transform .25s ease; width: 100%; }
+        .main-nav a:hover::after, .main-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+        .menu-toggle { align-items: center; background: transparent; border: 0; color: var(--ink); cursor: pointer; display: none; flex-direction: column; gap: 5px; padding: 8px 2px; }
+        .menu-toggle span { background: currentColor; display: block; height: 2px; width: 28px; }
+        main { padding: clamp(24px, 4vw, 56px) 0 clamp(64px, 10vw, 128px); }
+        h1 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: .86; margin: 0 0 28px; max-width: 8ch; text-transform: uppercase; }
+        h1 span { display: block; }
+        h1 span:last-child { color: var(--accent); }
+        .contact-lede { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; margin: 0 0 48px; max-width: 38rem; }
+        .contact-layout { align-items: start; display: grid; gap: clamp(40px, 6vw, 88px); grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+        .contact-card { border-top: 1px solid var(--line); padding: 22px 0; }
+        .contact-card h2 { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .14em; margin: 0 0 12px; text-transform: uppercase; }
+        .contact-card p { color: var(--muted); line-height: 1.6; margin: 0; }
+        .contact-card a { color: var(--ink); font-weight: 700; text-decoration: none; }
+        .contact-card a:hover, .contact-card a:focus { color: var(--accent); }
+        form { display: grid; gap: 18px; }
+        label { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+        input, textarea { background: transparent; border: 1px solid var(--line); color: var(--ink); display: block; font: inherit; margin-top: 8px; padding: 14px 16px; width: 100%; }
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+        textarea { min-height: 160px; resize: vertical; }
+        button[type="submit"] { background: var(--accent); border: 0; border-radius: 999px; color: #171716; cursor: pointer; font-size: .68rem; font-weight: 700; letter-spacing: .14em; justify-self: start; padding: 16px 28px; text-transform: uppercase; }
+        button[type="submit"]:hover, button[type="submit"]:focus { background: var(--ink); }
+        .form-status { color: var(--muted); font-size: .95rem; margin: 0; min-height: 1.4em; }
+        .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; letter-spacing: .04em; padding: 28px 0 36px; }
+        .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        .social-links { display: flex; gap: clamp(20px, 4vw, 48px); }
+        .social-links a { color: var(--ink); font-weight: 700; text-decoration: none; }
+        .social-links a:hover, .social-links a:focus { color: var(--accent); }
+
+        @media (max-width: 700px) {
+            header, main { width: min(100% - 32px, 560px); }
+            .footer-inner { width: min(100% - 32px, 560px); }
+            header { padding-top: 18px; }
+            .menu-toggle { display: flex; }
+            .main-nav { align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: none; flex-direction: column; gap: 0; left: 0; padding: 8px 16px 12px; position: absolute; right: 0; text-align: left; top: 62px; z-index: 2; }
+            .main-nav a { padding: 16px 0; }
+            .main-nav a::after { display: none; }
+            .main-nav.is-open { display: flex; }
+            .contact-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="identity" href="/">London Oliver</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <a href="/acting/">Home</a>
+            <a href="/acting/bio/">About</a>
+            <a href="/acting/resume/">Resume</a>
+            <a href="/acting/gallery/">Gallery</a>
+            <a href="/acting/contact/" aria-current="page">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h1><span>Get in</span><span>Touch</span></h1>
+        <p class="contact-lede">For casting and booking, please start with representation. Direct notes are welcome for press, collabs, and general inquiries.</p>
+        <div class="contact-layout">
+            <section aria-label="Contact details">
+                <div class="contact-card">
+                    <h2>Representation</h2>
+                    <p><a href="https://www.mza.agency/" target="_blank" rel="noopener noreferrer">Michael Zanuck Agency</a><br>Los Angeles, California</p>
+                </div>
+                <div class="contact-card">
+                    <h2>Social</h2>
+                    <p>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    </p>
+                </div>
+            </section>
+            <form id="contact-form" aria-label="Direct inquiry form">
+                <label>Name
+                    <input type="text" name="name" autocomplete="name" required>
+                </label>
+                <label>Email
+                    <input type="email" name="email" autocomplete="email" required>
+                </label>
+                <label>Message
+                    <textarea name="message" required></textarea>
+                </label>
+                <button type="submit">Send message</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 London Oliver</span>
+            <nav class="social-links" aria-label="Social links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+        mainNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const form = document.querySelector('#contact-form');
+        const status = document.querySelector('.form-status');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const data = new FormData(form);
+            const name = data.get('name');
+            const email = data.get('email');
+            const message = data.get('message');
+            const subject = encodeURIComponent(`Acting inquiry from ${name}`);
+            const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+            status.textContent = 'Opening your email app…';
+            window.location.href = `mailto:londongoliver@gmail.com?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
+</html>

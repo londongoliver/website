@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acting resume for London Oliver.">
+    <title>Resume - London Oliver</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            color-scheme: dark;
+            --ink: #f2efe9;
+            --muted: #aaa49b;
+            --line: #3c3a36;
+            --paper: #171716;
+            --accent: #d9a35f;
+        }
+
+        * { box-sizing: border-box; }
+        body { margin: 0; background: radial-gradient(circle at 78% 12%, rgba(217, 163, 95, .12), transparent 28rem), var(--paper); color: var(--ink); font-family: 'Manrope', Arial, sans-serif; }
+        header, main { margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        header { align-items: center; display: flex; justify-content: space-between; padding: 30px 0 18px; }
+        .identity { color: var(--ink); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(.9rem, 1.8vw, 1.2rem); font-weight: 800; letter-spacing: .12em; line-height: 1.05; max-width: 10ch; text-decoration: none; text-transform: uppercase; }
+        nav a { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+        nav a:hover, nav a:focus { color: var(--accent); }
+        .main-nav { align-items: center; display: flex; gap: clamp(22px, 4vw, 64px); }
+        .main-nav a { position: relative; transition: color .25s ease; }
+        .main-nav a[aria-current="page"] { color: var(--accent); }
+        .main-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+        .main-nav a::after { background: var(--accent); bottom: -9px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: right; transition: transform .25s ease; width: 100%; }
+        .main-nav a:hover::after, .main-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+        .menu-toggle { align-items: center; background: transparent; border: 0; color: var(--ink); cursor: pointer; display: none; flex-direction: column; gap: 5px; padding: 8px 2px; }
+        .menu-toggle span { background: currentColor; display: block; height: 2px; width: 28px; }
+        main { padding: clamp(24px, 4vw, 56px) 0 clamp(64px, 10vw, 128px); }
+        .resume-hero { align-items: start; display: grid; gap: clamp(36px, 6vw, 80px); grid-template-columns: minmax(220px, .7fr) minmax(0, 1.4fr); margin-bottom: clamp(48px, 7vw, 88px); }
+        .resume-portrait { margin: 0; position: relative; }
+        .resume-portrait::before { background: var(--accent); content: ''; inset: 16px 0 -16px 16px; position: absolute; z-index: 0; }
+        .resume-portrait img { aspect-ratio: 4 / 5; display: block; object-fit: cover; position: relative; width: 100%; z-index: 1; }
+        h1 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: .86; margin: 0 0 28px; max-width: 8ch; text-transform: uppercase; }
+        h1 span { display: block; }
+        h1 span:last-child { color: var(--accent); }
+        .resume-lede { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; margin: 0 0 28px; max-width: 36rem; }
+        .vitals { display: grid; gap: 18px 32px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; max-width: 28rem; padding: 0; }
+        .vitals div { border-top: 1px solid var(--line); padding-top: 12px; }
+        .vitals dt { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .14em; margin: 0 0 6px; text-transform: uppercase; }
+        .vitals dd { margin: 0; }
+        .vitals a { color: var(--ink); text-decoration: none; }
+        .vitals a:hover, .vitals a:focus { color: var(--accent); }
+        .resume-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+        .resume-actions a { background: var(--accent); border-radius: 999px; color: #171716; font-size: .68rem; font-weight: 700; letter-spacing: .14em; padding: 16px 24px; text-decoration: none; text-transform: uppercase; }
+        .resume-actions a:last-child { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+        .resume-actions a:hover, .resume-actions a:focus { background: var(--ink); border-color: var(--ink); color: #171716; }
+        .credit-block + .credit-block { margin-top: 48px; }
+        .credit-block h2 { color: var(--accent); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; letter-spacing: .08em; margin: 0 0 18px; text-transform: uppercase; }
+        .credits { border-top: 1px solid var(--line); margin: 0; padding: 0; width: 100%; }
+        .credits .row { border-bottom: 1px solid var(--line); display: grid; gap: 12px; grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr) minmax(0, 1fr); padding: 16px 0; }
+        .credits .project { color: var(--ink); font-weight: 700; }
+        .credits .role, .credits .meta { color: var(--muted); }
+        .credit-note { color: var(--muted); font-size: .95rem; line-height: 1.6; margin: 16px 0 0; }
+        .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; letter-spacing: .04em; padding: 28px 0 36px; }
+        .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: auto; width: min(1080px, calc(100% - clamp(32px, 7vw, 96px))); }
+        .social-links { display: flex; gap: clamp(20px, 4vw, 48px); }
+        .social-links a { color: var(--ink); font-weight: 700; text-decoration: none; }
+        .social-links a:hover, .social-links a:focus { color: var(--accent); }
+
+        @media (max-width: 700px) {
+            header, main { width: min(100% - 32px, 560px); }
+            .footer-inner { width: min(100% - 32px, 560px); }
+            header { padding-top: 18px; }
+            .menu-toggle { display: flex; }
+            .main-nav { align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: none; flex-direction: column; gap: 0; left: 0; padding: 8px 16px 12px; position: absolute; right: 0; text-align: left; top: 62px; z-index: 2; }
+            .main-nav a { padding: 16px 0; }
+            .main-nav a::after { display: none; }
+            .main-nav.is-open { display: flex; }
+            .resume-hero { display: flex; flex-direction: column; gap: 36px; }
+            .resume-portrait { align-self: center; max-width: 360px; width: 100%; }
+            .vitals { grid-template-columns: 1fr; }
+            .credits .row { grid-template-columns: 1fr; gap: 4px; }
+        }
+
+        @media print {
+            body { background: white; color: #111; }
+            header, .resume-actions, .site-footer { display: none; }
+            main { width: 100%; padding: 0; }
+            .resume-portrait::before { display: none; }
+            h1 span:last-child, .vitals dt, .credit-block h2 { color: #8a6428; }
+            .credits .role, .credits .meta, .resume-lede, .credit-note { color: #444; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="identity" href="/">London Oliver</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+            <a href="/acting/">Home</a>
+            <a href="/acting/bio/">About</a>
+            <a href="/acting/resume/" aria-current="page">Resume</a>
+            <a href="/acting/gallery/">Gallery</a>
+            <a href="/acting/contact/">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="resume-hero" aria-labelledby="resume-heading">
+            <figure class="resume-portrait">
+                <img src="../images/london-oliver-acting-headshot-black-suit.webp" alt="London Oliver in a black suit" fetchpriority="high">
+            </figure>
+            <div>
+                <h1 id="resume-heading"><span>Acting</span><span>Resume</span></h1>
+                <p class="resume-lede">Los Angeles actor with a background in improv, short films, and commercial work. Represented by the Michael Zanuck Agency.</p>
+                <dl class="vitals">
+                    <div>
+                        <dt>Location</dt>
+                        <dd>Los Angeles, CA</dd>
+                    </div>
+                    <div>
+                        <dt>Representation</dt>
+                        <dd><a href="https://www.mza.agency/" target="_blank" rel="noopener noreferrer">Michael Zanuck Agency</a></dd>
+                    </div>
+                    <div>
+                        <dt>Reel</dt>
+                        <dd><a href="/acting/#reel">Watch the reel</a></dd>
+                    </div>
+                    <div>
+                        <dt>Contact</dt>
+                        <dd><a href="/acting/contact/">Booking inquiries</a></dd>
+                    </div>
+                </dl>
+                <div class="resume-actions">
+                    <a href="/acting/gallery/">Headshots</a>
+                    <a href="/acting/contact/">Get in touch</a>
+                </div>
+            </div>
+        </section>
+        <section class="credit-block" aria-labelledby="digital-heading">
+            <h2 id="digital-heading">Digital</h2>
+            <div class="credits">
+                <div class="row">
+                    <span class="project">VHS Dates — London #207</span>
+                    <span class="role">Featured</span>
+                    <span class="meta">Instagram, 2025</span>
+                </div>
+            </div>
+        </section>
+        <section class="credit-block" aria-labelledby="film-heading">
+            <h2 id="film-heading">Film &amp; Commercial</h2>
+            <p class="credit-note">Select short film and commercial credits are available through representation.</p>
+        </section>
+        <section class="credit-block" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Special Skills</h2>
+            <p class="credit-note">Improv, comedy, on-camera commercial, Los Angeles local hire.</p>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 London Oliver</span>
+            <nav class="social-links" aria-label="Social links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+        mainNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+</html>
