@@ -41,7 +41,7 @@
         nav a { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
         nav a:hover, nav a:focus { color: var(--accent); }
         .main-nav { align-items: center; display: flex; gap: clamp(22px, 4vw, 64px); }
-        .main-nav a { position: relative; transition: color .25s ease; }
+        .main-nav a { font-size: clamp(.75rem, 1.1vw, .95rem); position: relative; transition: color .25s ease; }
         .main-nav a[aria-current="page"] { color: var(--accent); }
         .main-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
         .main-nav a::after { background: var(--accent); bottom: -9px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: right; transition: transform .25s ease; width: 100%; }
@@ -111,7 +111,7 @@
             .footer-inner { padding-left: 16px; padding-right: 16px; width: 100%; }
             .menu-toggle { display: flex; }
             .main-nav { align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: none; flex-direction: column; gap: 0; left: 0; padding: 8px 16px 12px; position: absolute; right: 0; text-align: left; top: 62px; z-index: 2; }
-            .main-nav a { font-size: .78rem; padding: 16px 0; }
+            .main-nav a { font-size: clamp(.75rem, 2.4vw, .95rem); padding: 16px 0; }
             .main-nav a::after { display: none; }
             .main-nav.is-open { display: flex; }
             .intro { padding: 32px 0 30px; }
