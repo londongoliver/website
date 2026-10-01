@@ -38,8 +38,15 @@
         h1 span { display: inline; }
         h1 span:last-child { color: var(--accent); }
         .contact-lede { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; margin: 0 0 48px; max-width: 38rem; }
-        .contact-layout { align-items: start; display: grid; gap: clamp(40px, 6vw, 88px); grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
-        .contact-card { border-top: 1px solid var(--line); padding: 22px 0; }
+        .contact-lede a { color: var(--accent); text-underline-offset: .18em; }
+        .contact-lede a:hover, .contact-lede a:focus { color: var(--ink); }
+        .contact-layout { align-items: start; display: grid; gap: clamp(20px, 2.5vw, 36px); grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+        .contact-layout--form-disabled { grid-template-columns: minmax(0, .9fr) minmax(260px, 1fr); }
+        .contact-portrait { margin: 0; max-width: 400px; position: relative; width: 100%; }
+        .contact-portrait::before { border: 2px solid rgba(217, 163, 95, .45); content: ''; inset: -4% 4% 4% -4%; position: absolute; z-index: 0; }
+        .contact-portrait img { aspect-ratio: 4 / 5; box-shadow: 0 22px 48px rgba(0, 0, 0, .35); display: block; object-fit: cover; position: relative; width: 100%; z-index: 1; }
+        .contact-card { padding: 22px 0; position: relative; }
+        .contact-card::before { border-top: 1px solid var(--line); content: ''; left: 0; position: absolute; top: 0; width: min(70%, 28rem); }
         .contact-card h2 { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .14em; margin: 0 0 12px; text-transform: uppercase; }
         .contact-card p { color: var(--muted); line-height: 1.6; margin: 0; }
         .contact-card a { color: var(--ink); font-weight: 700; text-decoration: none; }
@@ -89,10 +96,10 @@
         </nav>
     </header>
     <main>
-        <h1><span>Get in</span> <span>Touch</span></h1>
-        <p class="contact-lede">For casting and booking, please start with representation. Direct notes are welcome for press, collabs, and general inquiries.</p>
-        <div class="contact-layout">
+        <div class="contact-layout contact-layout--form-disabled">
             <section aria-label="Contact details">
+                <h1><span>Get in</span> <span>Touch</span></h1>
+                <p class="contact-lede"><a href="https://www.instagram.com/londonoliver" target="_blank" rel="noopener noreferrer">Message me on Instagram</a></p>
                 <div class="contact-card">
                     <h2>Representation</h2>
                     <p><a href="https://www.mza.agency/" target="_blank" rel="noopener noreferrer">Michael Zanuck Agency</a><br>Los Angeles, California</p>
@@ -100,11 +107,14 @@
                 <div class="contact-card">
                     <h2>Social</h2>
                     <p>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        <a href="https://www.instagram.com/londonoliver" target="_blank" rel="noopener noreferrer">Instagram</a><br>
                     </p>
                 </div>
             </section>
+            <figure class="contact-portrait">
+                <img src="../images/london-oliver-acting-headshot-tie-dye.webp" alt="London Oliver in colorful tie-dye clothing and a red bandana" loading="lazy">
+            </figure>
+            <!--
             <form id="contact-form" aria-label="Direct inquiry form">
                 <label>Name
                     <input type="text" name="name" autocomplete="name" required>
@@ -118,14 +128,14 @@
                 <button type="submit">Send message</button>
                 <p class="form-status" role="status" aria-live="polite"></p>
             </form>
+            -->
         </div>
     </main>
     <footer class="site-footer">
         <div class="footer-inner">
             <span>&copy; 2026 London Oliver</span>
             <nav class="social-links" aria-label="Social links">
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.instagram.com/londonoliver" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="https://www.imdb.com/name/nm18956927/" target="_blank" rel="noopener noreferrer">IMDb</a>
                 <a href="https://www.backstage.com/u/london-oliver/" target="_blank" rel="noopener noreferrer">Backstage</a>
             </nav>
@@ -145,6 +155,7 @@
             });
         });
 
+        /*
         const form = document.querySelector('#contact-form');
         const status = document.querySelector('.form-status');
         form.addEventListener('submit', (event) => {
@@ -158,6 +169,7 @@
             status.textContent = 'Opening your email app…';
             window.location.href = `mailto:londongoliver@gmail.com?subject=${subject}&body=${body}`;
         });
+        */
     </script>
 </body>
 </html>
