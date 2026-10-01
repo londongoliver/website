@@ -24,28 +24,30 @@
         header, main { margin: 0; width: 100%; }
         header { align-items: center; display: flex; justify-content: space-between; padding: 30px clamp(16px, 4vw, 48px) 18px; }
         .identity { color: var(--ink); font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(.9rem, 1.8vw, 1.2rem); font-weight: 800; letter-spacing: .12em; line-height: 1.05; max-width: 10ch; text-decoration: none; text-transform: uppercase; }
-        nav a { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+        nav a { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
         nav a:hover, nav a:focus { color: var(--accent); }
         .main-nav { align-items: center; display: flex; gap: clamp(22px, 4vw, 64px); }
-        .main-nav a { position: relative; transition: color .25s ease; }
-        .main-nav a[aria-current="page"] { color: var(--accent); }
+        .main-nav a { font-size: clamp(.75rem, 1.1vw, .95rem); position: relative; transition: color .25s ease; }
+        .main-nav a[aria-current="page"] { color: var(--ink); }
         .main-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
         .main-nav a::after { background: var(--accent); bottom: -9px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: right; transition: transform .25s ease; width: 100%; }
         .main-nav a:hover::after, .main-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
         .menu-toggle { align-items: center; background: transparent; border: 0; color: var(--ink); cursor: pointer; display: none; flex-direction: column; gap: 5px; padding: 8px 2px; }
         .menu-toggle span { background: currentColor; display: block; height: 2px; width: 28px; }
-        main { padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px) 0; }
+        main { padding: clamp(24px, 4vw, 56px) clamp(16px, 4vw, 48px) 0; }
         .eyebrow { color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
         .about-hero { align-items: start; display: grid; gap: clamp(32px, 8vw, 112px); grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); }
         .about-portrait { margin: 0; position: relative; }
-        .about-portrait::before { background: var(--accent); content: ''; inset: 20px 0 -20px 20px; position: absolute; z-index: 0; }
-        .about-portrait img { aspect-ratio: 4 / 5; display: block; object-fit: cover; position: relative; width: 100%; z-index: 1; }
-        h1 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: .86; margin: 18px 0 40px; max-width: 8ch; text-transform: uppercase; }
-        h1 span { display: block; }
+        .about-portrait::before { border: 2px solid rgba(217, 163, 95, .45); content: ''; inset: -4% 4% 4% -4%; position: absolute; z-index: 0; }
+        .about-portrait img { aspect-ratio: 4 / 5; box-shadow: 0 22px 48px rgba(0, 0, 0, .35); display: block; object-fit: cover; position: relative; width: 100%; z-index: 1; }
+        h1 { font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(2.5rem, 4.5vw, 5rem); font-weight: 800; line-height: .95; margin: 18px 0 40px; max-width: none; text-transform: uppercase; }
+        h1 span { display: inline; }
         h1 span:last-child { color: var(--accent); }
-        .about-copy { padding-top: 12px; }
+        .about-copy { padding-right: clamp(16px, 4vw, 64px); padding-top: 12px; }
         .bio-copy { max-width: 48rem; }
-        .bio-copy p { color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.7; margin: 0; }
+        .bio-copy p { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.7; margin: 0; }
+        .bio-copy a { color: var(--accent); text-underline-offset: .18em; }
+        .bio-copy a:hover, .bio-copy a:focus { color: var(--ink); }
         .about-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px; }
         .about-actions a { background: var(--accent); border-radius: 999px; color: #171716; font-size: .68rem; font-weight: 700; letter-spacing: .14em; padding: 16px 24px; text-decoration: none; text-transform: uppercase; }
         .about-actions a:last-child { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
@@ -72,13 +74,14 @@
             .footer-inner { padding-left: 16px; padding-right: 16px; width: 100%; }
             .menu-toggle { display: flex; }
             .main-nav { align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: none; flex-direction: column; gap: 0; left: 0; padding: 8px 16px 12px; position: absolute; right: 0; text-align: left; top: 62px; z-index: 2; }
-            .main-nav a { padding: 16px 0; }
+            .main-nav a { font-size: clamp(.75rem, 2.4vw, .95rem); padding: 16px 0; }
             .main-nav a::after { display: none; }
             .main-nav.is-open { display: flex; }
-            main { padding-top: 56px; }
+            main { padding-top: 32px; }
             .about-hero { display: flex; flex-direction: column; gap: 52px; }
             .about-portrait { align-self: center; max-width: 430px; width: 100%; }
-            .about-copy { padding-top: 0; }
+            .about-copy { padding-right: 0; padding-top: 0; }
+            h1 { font-size: clamp(2.8rem, 9vw, 4rem); white-space: normal; }
             .video-grid { grid-template-columns: minmax(0, 1fr); }
             .videos-inner { padding-left: 16px; padding-right: 16px; width: 100%; }
         }
@@ -104,7 +107,7 @@
                 <img src="../images/london-oliver-acting-headshot-black-suit.webp" alt="London Oliver in a black suit" fetchpriority="high">
             </figure>
             <div class="about-copy">
-                <h1 id="about-heading"><span>About</span><span>London</span></h1>
+                <h1 id="about-heading"><span>About</span> <span>London</span></h1>
                 <section class="bio-copy" aria-label="About London Oliver">
                     <p>I'm most known for my self-titled character in the 2025 improv dating series <a href="https://www.instagram.com/vhsdates" target="_blank" rel="noopener noreferrer">VHS Dates</a>. My video got nearly 3 million views on Instagram. Many celebrities liked it, including Zoe Saldaña, Olivia Wilde, Adam Devine, and Patricia Arquette. The Metropolitan Opera company in New York City even <a href="https://www.instagram.com/reel/DSMMiAajGcr" target="_blank" rel="noopener noreferrer">parodied</a> it.</p>
                     <p>VHS Dates was covered in <a href="https://www.nytimes.com/2026/08/10/arts/vhs-dates-instagram-tapes.html" target="_blank" rel="noopener noreferrer">The New York Times</a>, and it was part of Tribeca Festival's 2026 Tribeca NOW spotlight of digital storytellers. You can  buy a real VHS tape with bonus footage of my video on the VHS Dates <a href="https://www.vhsdates.com/store/p/compilation-vhs-tape-vol-1-exclusive-footage" target="_blank" rel="noopener noreferrer">store</a>.</p>
