@@ -64,6 +64,14 @@
         .social-links { display: flex; gap: clamp(20px, 4vw, 48px); }
         .social-links a { color: var(--ink); font-weight: 700; text-decoration: none; }
         .social-links a:hover, .social-links a:focus { color: var(--accent); }
+        @media (max-width: 700px) {
+            .social-links { align-items: center; gap: 18px; }
+            .social-links a { font-size: 0; min-width: 30px; text-align: center; }
+            .social-links a::before { display: inline-block; font-size: 1.35rem; line-height: 1; }
+            .social-links a[href*="instagram.com"]::before { content: '◎'; font-size: 1.8rem; }
+            .social-links a[href*="imdb.com"]::before { background: var(--accent); border-radius: 3px; color: var(--paper); content: 'IMDb'; font-size: .58rem; letter-spacing: -.04em; padding: 3px 4px; }
+            .social-links a[href*="backstage.com"]::before { border: 2px solid currentColor; border-radius: 50%; content: 'B'; font-size: .8rem; height: 1.25rem; line-height: 1.05rem; width: 1.25rem; }
+        }
 
         @media (max-width: 700px) {
             header, main { width: 100%; }
