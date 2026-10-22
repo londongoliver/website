@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selected filmmaking and music video work by London Oliver. Made for the feeling that stays after the credits.">
+    <meta name="theme-color" content="#171716">
+    <title>Filmmaking | London Oliver</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            color-scheme: dark;
+            --ink: #f2efe9;
+            --muted: #aaa9a8;
+            --line: #343334;
+            --paper: #111112;
+            --surface: #19191a;
+            --accent: #bd615c;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: radial-gradient(ellipse at 78% 5%, rgba(255, 255, 255, .035), transparent 34rem), var(--paper);
+            color: var(--ink);
+            font-family: 'DM Sans', Arial, sans-serif;
+            margin: 0;
+            min-width: 320px;
+        }
+
+        a { color: inherit; }
+
+        .site-header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1600px;
+            padding: 28px clamp(20px, 5.6vw, 88px);
+        }
+
+        .identity {
+            font-family: 'Manrope', Arial, sans-serif;
+            font-size: .94rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+            line-height: 1.1;
+            max-width: 9ch;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .main-nav { align-items: center; display: flex; gap: clamp(16px, 3vw, 44px); }
+        .main-nav a {
+            color: var(--muted);
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .13em;
+            position: relative;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color .2s ease;
+        }
+        .main-nav a:hover, .main-nav a:focus-visible, .main-nav a[aria-current="page"] { color: var(--accent); }
+        .main-nav a:focus-visible, .contact-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+
+        main { margin: 0 auto; max-width: 1600px; padding: 0 clamp(20px, 5.6vw, 88px); }
+
+        .hero { padding: 0 0 clamp(86px, 12vw, 156px); }
+        .eyebrow {
+            align-items: center;
+            color: var(--muted);
+            display: flex;
+            font-size: .67rem;
+            font-weight: 700;
+            gap: 12px;
+            letter-spacing: .2em;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .eyebrow::before { background: var(--accent); content: ''; height: 1px; width: 24px; }
+        h1, h2, h3 { font-family: 'Manrope', Arial, sans-serif; }
+        h1 {
+            font-size: clamp(1.25rem, 2.7vw, 2.2rem);
+            font-weight: 500;
+            letter-spacing: -.045em;
+            line-height: 1.2;
+            margin: 18px 0 0;
+        }
+        .hero-bottom {
+            align-items: center;
+            display: grid;
+            gap: 18px 36px;
+            grid-template-columns: minmax(0, 1fr) auto;
+            margin-top: 24px;
+        }
+        .hero-copy {
+            color: var(--muted);
+            font-size: clamp(.9rem, 1.25vw, 1.02rem);
+            line-height: 1.7;
+            margin: 0;
+            max-width: 36rem;
+        }
+        .hero-index {
+            color: var(--muted);
+            flex: 0 0 auto;
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .work { padding: clamp(44px, 7vw, 92px) 0 clamp(76px, 10vw, 132px); }
+        .section-heading {
+            align-items: end;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+        .section-heading h2 {
+            color: var(--muted);
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .section-heading p {
+            color: var(--muted);
+            font-size: .66rem;
+            letter-spacing: .08em;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .video-grid { display: grid; gap: clamp(14px, 2vw, 28px); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .video-card { min-width: 0; }
+        .video-frame {
+            aspect-ratio: 16 / 9;
+            background: #1b1b1c;
+            border: 1px solid rgba(242, 239, 233, .09);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, .24);
+            overflow: hidden;
+            position: relative;
+        }
+        .video-frame::after {
+            background: linear-gradient(180deg, rgba(0, 0, 0, .12), transparent 36%, rgba(0, 0, 0, .24));
+            content: '';
+            inset: 0;
+            pointer-events: none;
+            position: absolute;
+        }
+        .video-poster {
+            align-items: center;
+            background: #1b1b1c;
+            display: flex;
+            inset: 0;
+            justify-content: center;
+            overflow: hidden;
+            position: absolute;
+            text-decoration: none;
+        }
+        .video-poster:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+        .video-poster img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            opacity: .87;
+            transition: opacity .35s ease, transform .6s ease, filter .35s ease;
+            width: 100%;
+        }
+        .video-poster:hover img, .video-poster:focus-visible img { filter: brightness(.8); opacity: 1; transform: scale(1.025); }
+        .play-button {
+            align-items: center;
+            backdrop-filter: blur(8px);
+            background: rgba(17, 17, 18, .48);
+            border: 1px solid rgba(255, 255, 255, .72);
+            border-radius: 50%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
+            color: #fff;
+            display: flex;
+            height: clamp(54px, 7vw, 78px);
+            justify-content: center;
+            padding-left: 4px;
+            position: absolute;
+            transition: background .25s ease, border-color .25s ease, transform .25s ease;
+            width: clamp(54px, 7vw, 78px);
+            z-index: 1;
+        }
+        .play-button::before {
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid currentColor;
+            border-top: 8px solid transparent;
+            content: '';
+        }
+        .video-poster:hover .play-button, .video-poster:focus-visible .play-button {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.06);
+        }
+        .video-frame iframe { aspect-ratio: 16 / 9; border: 0; display: block; height: 100%; position: absolute; width: 100%; z-index: 2; }
+        .video-caption {
+            align-items: baseline;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            gap: 12px;
+            justify-content: space-between;
+            padding: 15px 1px 14px;
+        }
+        .video-caption h3 { font-size: clamp(.94rem, 1.45vw, 1.16rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.35; margin: 0; }
+        .video-caption p { color: var(--muted); font-size: .63rem; letter-spacing: .1em; margin: 0; text-align: right; text-transform: uppercase; }
+
+        .about-work {
+            border-top: 1px solid var(--line);
+            display: grid;
+            gap: 32px;
+            grid-template-columns: minmax(130px, .7fr) minmax(0, 1.3fr);
+            margin-bottom: clamp(46px, 8vw, 100px);
+            padding-top: clamp(25px, 4vw, 46px);
+        }
+        .about-work .eyebrow { color: var(--muted); }
+        .about-work-copy { color: var(--muted); font-size: clamp(.94rem, 1.5vw, 1.12rem); line-height: 1.8; margin: 0; max-width: 40rem; }
+        .contact {
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+            margin-bottom: clamp(72px, 10vw, 132px);
+            padding: clamp(30px, 6vw, 72px);
+        }
+        .contact-copy .eyebrow { margin-bottom: 18px; }
+        .contact h2 {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -.07em;
+            line-height: .98;
+            margin: 0;
+            max-width: 12ch;
+        }
+        .contact-link {
+            align-items: center;
+            border: 1px solid #555354;
+            color: var(--ink);
+            display: inline-flex;
+            flex: 0 0 auto;
+            font-size: .69rem;
+            font-weight: 700;
+            gap: 26px;
+            letter-spacing: .14em;
+            padding: 17px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background .2s ease, color .2s ease;
+        }
+        .contact-link::after { content: '↗'; font-size: 1.1rem; }
+        .contact-link:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+        .site-footer { border-top: 1px solid var(--line); color: var(--muted); }
+        .footer-inner {
+            align-items: center;
+            display: flex;
+            font-size: .75rem;
+            gap: 24px;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1600px;
+            padding: 25px clamp(20px, 5.6vw, 88px) 32px;
+        }
+        .social-links { display: flex; gap: clamp(18px, 3vw, 40px); }
+        .social-links a { color: var(--ink); font-weight: 600; text-decoration: none; }
+        .social-links a:hover, .social-links a:focus-visible { color: var(--accent); }
+
+        @media (max-width: 650px) {
+            .site-header { align-items: flex-start; gap: 20px; padding-bottom: 24px; padding-top: 22px; }
+            .main-nav { flex-wrap: wrap; gap: 12px 18px; justify-content: flex-end; }
+            .main-nav a { font-size: .61rem; }
+            .hero { padding-bottom: 56px; }
+            .hero-bottom { align-items: start; grid-template-columns: minmax(0, 1fr); margin-top: 14px; }
+            .hero-index { justify-self: end; }
+            .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+            .video-grid { grid-template-columns: minmax(0, 1fr); row-gap: 34px; }
+            .video-caption { align-items: flex-start; flex-direction: column; gap: 6px; }
+            .video-caption p { text-align: left; }
+            .about-work { gap: 14px; grid-template-columns: minmax(0, 1fr); }
+            .contact { align-items: flex-start; flex-direction: column; }
+            .footer-inner { align-items: flex-start; flex-direction: column; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="identity" href="/" aria-label="London Oliver home">London Oliver</a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="/photography/">Photography</a>
+            <a href="/music/">Music</a>
+            <a href="/filmmaking/" aria-current="page">Filmmaking</a>
+            <a href="/acting/">Acting</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="work" id="work" aria-labelledby="work-title">
+            <div class="video-grid">
+                <article class="video-card">
+                    <div class="video-frame">
+                        <a class="video-poster" href="https://youtu.be/HNQr2MllTU4" data-video-id="HNQr2MllTU4" data-video-title="Fancy — Meant to Be (Bebe Rexha Cover) featuring London Oliver — Official Music Video" aria-label="Play Meant to Be by Fancy, featuring London Oliver">
+                            <img src="https://i.ytimg.com/vi/HNQr2MllTU4/hqdefault.jpg" alt="" fetchpriority="high">
+                            <span class="play-button" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="video-caption">
+                        <div>
+                            <h3>Fancy — “Meant to Be”</h3>
+                            <p>Filmmaker - Director - Post-Production</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="video-card">
+                    <div class="video-frame">
+                        <a class="video-poster" href="https://youtu.be/qB1ntLIULAI" data-video-id="qB1ntLIULAI" data-video-title="Fancy — I Could Fall in Love — Official Music Video" aria-label="Play I Could Fall in Love by Fancy">
+                            <img src="https://i.ytimg.com/vi/qB1ntLIULAI/hqdefault.jpg" alt="" loading="lazy">
+                            <span class="play-button" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="video-caption">
+                        <div>
+                            <h3>Fancy — “I Could Fall in Love”</h3>
+                            <p>Filmmaker - Director - Post-Production</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="hero" aria-labelledby="page-title">
+            <p class="eyebrow">London Oliver &nbsp; / &nbsp; Filmmaking</p>
+            <h1 id="page-title">Film &amp; video</h1>
+            <div class="hero-bottom">
+                <p class="hero-copy">Bringing image, performance, and feeling together to build a world around every song.</p>
+                <span class="hero-index">01—02 &nbsp; / &nbsp; Film</span>
+            </div>
+        </section>
+
+        <section class="about-work" aria-label="About the work">
+            <p class="eyebrow">A point of view</p>
+            <p class="about-work-copy">Drawn to visual storytelling that creates a mood, brings a song to life, and gives the audience a reason to stay in the frame.</p>
+        </section>
+
+        <section class="contact" aria-labelledby="contact-title">
+            <div class="contact-copy">
+                <p class="eyebrow">For the next story</p>
+                <h2 id="contact-title">Have a project in mind?</h2>
+            </div>
+            <a class="contact-link" href="mailto:londongoliver@gmail.com?subject=Filmmaking%20inquiry">Let’s talk</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 London Oliver</span>
+            <nav class="social-links" aria-label="Social links">
+                <a href="https://www.instagram.com/londonoliver" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.imdb.com/name/nm18956927/" target="_blank" rel="noopener noreferrer">IMDb</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.video-poster').forEach((poster) => {
+            poster.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const player = document.createElement('iframe');
+                player.src = `https://www.youtube-nocookie.com/embed/${poster.dataset.videoId}?autoplay=1&rel=0`;
+                player.title = poster.dataset.videoTitle;
+                player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                player.referrerPolicy = 'strict-origin-when-cross-origin';
+                player.allowFullscreen = true;
+
+                poster.replaceWith(player);
+            });
+        });
+    </script>
+</body>
+</html>
