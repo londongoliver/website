@@ -73,14 +73,6 @@
             padding: clamp(40px, 6vw, 84px) 0 clamp(65px, 9vw, 120px);
         }
         .hero-copy { padding: 0 0 0 clamp(0px, 3vw, 40px); }
-        .eyebrow {
-            color: var(--accent);
-            font-size: .64rem;
-            font-weight: 700;
-            letter-spacing: .18em;
-            margin: 0;
-            text-transform: uppercase;
-        }
         h1 {
             font-family: var(--serif);
             font-size: clamp(3.6rem, 7.1vw, 7.4rem);
@@ -91,13 +83,6 @@
             max-width: 8ch;
         }
         h1 em { color: var(--accent); font-weight: 500; }
-        .hero-description {
-            color: var(--muted);
-            font-size: clamp(.96rem, 1.25vw, 1.08rem);
-            line-height: 1.8;
-            margin: 0;
-            max-width: 31rem;
-        }
         .hero-link {
             align-items: center;
             border-bottom: 1px solid var(--ink);
@@ -106,7 +91,7 @@
             font-weight: 700;
             gap: 28px;
             letter-spacing: .12em;
-            margin-top: 34px;
+            margin-top: 28px;
             padding: 0 0 12px;
             text-decoration: none;
             text-transform: uppercase;
@@ -124,26 +109,6 @@
             object-position: center 42%;
             width: 100%;
         }
-        .hero-image figcaption {
-            color: var(--muted);
-            font-size: .59rem;
-            letter-spacing: .1em;
-            padding-top: 11px;
-            text-align: right;
-            text-transform: uppercase;
-        }
-        .hero-side-note {
-            color: var(--muted);
-            font-size: .58rem;
-            letter-spacing: .13em;
-            position: absolute;
-            right: -28px;
-            top: 42%;
-            transform: translateX(100%) rotate(90deg);
-            transform-origin: left center;
-            white-space: nowrap;
-        }
-
         .portfolio { padding: clamp(36px, 6vw, 76px) 0 clamp(86px, 11vw, 142px); }
         .section-heading {
             align-items: end;
@@ -160,7 +125,6 @@
             letter-spacing: -.055em;
             margin: 0;
         }
-        .section-heading p { color: var(--muted); font-size: .62rem; letter-spacing: .11em; margin: 0 0 7px; text-transform: uppercase; }
         .gallery {
             columns: 3 240px;
             column-gap: clamp(14px, 2vw, 28px);
@@ -185,18 +149,6 @@
             width: 100%;
         }
         .photo-button:hover img, .photo-button:focus-visible img { filter: brightness(.94); transform: scale(1.025); }
-        .photo figcaption {
-            align-items: baseline;
-            color: var(--muted);
-            display: flex;
-            font-size: .59rem;
-            justify-content: space-between;
-            letter-spacing: .09em;
-            padding: 9px 1px 0;
-            text-transform: uppercase;
-        }
-        .photo figcaption span:last-child { color: #aaa69e; font-size: .54rem; }
-
         .services {
             border-top: 1px solid var(--line);
             display: grid;
@@ -224,8 +176,6 @@
             padding: 17px 0;
         }
         .service-list li::after { color: var(--accent); content: '↗'; font-family: var(--sans); font-size: .9rem; }
-        .services-note { color: var(--muted); font-size: .85rem; line-height: 1.8; margin: 22px 0 0; max-width: 34rem; }
-
         .contact {
             align-items: end;
             background: #eae6de;
@@ -236,7 +186,6 @@
             padding: clamp(40px, 7vw, 90px) clamp(22px, 8vw, 128px);
         }
         .contact h2 { max-width: 11ch; }
-        .contact .eyebrow { color: var(--muted); }
         .contact-link {
             align-items: center;
             background: var(--ink);
@@ -311,10 +260,8 @@
             .hero-copy { padding: 0; }
             h1 { font-size: clamp(3.6rem, 13vw, 6rem); max-width: 10ch; }
             .hero-image img { height: auto; min-height: 0; max-height: 76vh; }
-            .hero-side-note { display: none; }
             .gallery { columns: 2 150px; column-gap: 12px; }
             .photo { margin-bottom: 18px; }
-            .photo figcaption { align-items: flex-start; flex-direction: column; gap: 4px; }
             .services { gap: 28px; grid-template-columns: minmax(0, 1fr); }
             .contact { align-items: flex-start; flex-direction: column; }
             .site-footer { align-items: flex-start; flex-direction: column; gap: 14px; }
@@ -345,109 +292,90 @@
     <main>
         <section class="hero" aria-labelledby="page-title">
             <div class="hero-copy">
-                <p class="eyebrow">Portraits &nbsp;·&nbsp; Fashion &nbsp;·&nbsp; Events</p>
                 <h1 id="page-title">Make room<br>to <em>be seen.</em></h1>
-                <p class="hero-description">Portraits with presence, made in collaboration with the people in front of the lens. For your portfolio, your next idea, or simply a little more of you.</p>
-                <a class="hero-link" href="#portfolio">Explore the portfolio</a>
+                <a class="hero-link" href="#portfolio">View work</a>
             </div>
             <figure class="hero-image">
                 <img src="images/pink-dress-editorial.jpg" alt="Fashion portrait in a flowing bright pink dress on a city street" fetchpriority="high">
-                <figcaption>Movement, color &amp; character</figcaption>
-                <span class="hero-side-note" aria-hidden="true">Selected portrait / 01</span>
             </figure>
         </section>
 
         <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
             <div class="section-heading">
-                <h2 id="portfolio-title">A few frames</h2>
-                <p>Selected photography &nbsp; / &nbsp; 01—13</p>
+                <h2 id="portfolio-title">Selected work</h2>
             </div>
             <div class="gallery">
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/portrait-studio.jpg" data-alt="A close portrait leaning against a textured stone wall">
                         <img src="images/portrait-studio.jpg" alt="A close portrait leaning against a textured stone wall" loading="lazy">
                     </button>
-                    <figcaption><span>Quiet confidence</span><span>Portrait</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/denim-editorial.jpg" data-alt="Street-style portrait in a denim jacket against a graphic white wall">
                         <img src="images/denim-editorial.jpg" alt="Street-style portrait in a denim jacket against a graphic white wall" loading="lazy">
                     </button>
-                    <figcaption><span>Street style</span><span>Editorial</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/denim-in-the-city.jpg" data-alt="Close fashion portrait in denim surrounded by city greenery">
                         <img src="images/denim-in-the-city.jpg" alt="Close fashion portrait in denim surrounded by city greenery" loading="lazy">
                     </button>
-                    <figcaption><span>In the city</span><span>Fashion</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/pink-dress-editorial.jpg" data-alt="A model in a flowing bright pink dress in an urban setting">
                         <img src="images/pink-dress-editorial.jpg" alt="A model in a flowing bright pink dress in an urban setting" loading="lazy">
                     </button>
-                    <figcaption><span>Color in motion</span><span>Editorial</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/black-dress-editorial.jpg" data-alt="Fashion portrait in a black dress and white boots">
                         <img src="images/black-dress-editorial.jpg" alt="Fashion portrait in a black dress and white boots" loading="lazy">
                     </button>
-                    <figcaption><span>After hours</span><span>Fashion</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/metallic-fashion.jpg" data-alt="Portrait in a reflective metallic dress under soft light">
                         <img src="images/metallic-fashion.jpg" alt="Portrait in a reflective metallic dress under soft light" loading="lazy">
                     </button>
-                    <figcaption><span>Light &amp; texture</span><span>Editorial</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/fashion-reflection.jpg" data-alt="Fashion portrait beside a mirrored wall">
                         <img src="images/fashion-reflection.jpg" alt="Fashion portrait beside a mirrored wall" loading="lazy">
                     </button>
-                    <figcaption><span>In the reflection</span><span>Fashion</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/graffiti-portrait.jpg" data-alt="Portrait against a colorful graffiti-covered wall">
                         <img src="images/graffiti-portrait.jpg" alt="Portrait against a colorful graffiti-covered wall" loading="lazy">
                     </button>
-                    <figcaption><span>Against the walls</span><span>Portrait</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/film-event-portrait.jpg" data-alt="An event portrait at a film premiere">
                         <img src="images/film-event-portrait.jpg" alt="An event portrait at a film premiere" loading="lazy">
                     </button>
-                    <figcaption><span>On the scene</span><span>Event</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/studio-portrait.jpg" data-alt="Studio portrait with a bright, minimal backdrop">
                         <img src="images/studio-portrait.jpg" alt="Studio portrait with a bright, minimal backdrop" loading="lazy">
                     </button>
-                    <figcaption><span>A little levity</span><span>Portrait</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/wings-editorial-silver.jpg" data-alt="Dreamlike fashion portrait in a shimmering silver look">
                         <img src="images/wings-editorial-silver.jpg" alt="Dreamlike fashion portrait in a shimmering silver look" loading="lazy">
                     </button>
-                    <figcaption><span>Soft focus</span><span>Editorial</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/wings-editorial-pink.jpg" data-alt="Bold pink-lit fashion portrait with feathered styling">
                         <img src="images/wings-editorial-pink.jpg" alt="Bold pink-lit fashion portrait with feathered styling" loading="lazy">
                     </button>
-                    <figcaption><span>Electric pink</span><span>Fashion</span></figcaption>
                 </figure>
                 <figure class="photo">
                     <button class="photo-button" type="button" data-image="images/white-suit-portrait.jpg" data-alt="Editorial portrait in a white blazer against sculptural architecture">
                         <img src="images/white-suit-portrait.jpg" alt="Editorial portrait in a white blazer against sculptural architecture" loading="lazy">
                     </button>
-                    <figcaption><span>Quiet power</span><span>Portrait</span></figcaption>
                 </figure>
             </div>
         </section>
 
         <section class="services" id="services" aria-labelledby="services-title">
             <div>
-                <p class="eyebrow">Made with you, not just for you</p>
-                <h2 id="services-title">A session that feels like yours.</h2>
+                <h2 id="services-title">Services</h2>
             </div>
             <div>
                 <ul class="service-list">
@@ -455,16 +383,14 @@
                     <li>Fashion &amp; editorial</li>
                     <li>Events &amp; creative projects</li>
                 </ul>
-                <p class="services-note">From a first camera-shy frame to a fully realized creative concept, we’ll shape the session around what you want to express.</p>
             </div>
         </section>
 
         <section class="contact" id="contact" aria-labelledby="contact-title">
             <div>
-                <p class="eyebrow">Have something in mind?</p>
-                <h2 id="contact-title">Let’s make a little magic.</h2>
+                <h2 id="contact-title">Let’s work together.</h2>
             </div>
-            <a class="contact-link" href="mailto:londongoliver@gmail.com?subject=Photography%20inquiry">Start a conversation</a>
+            <a class="contact-link" href="mailto:londongoliver@gmail.com?subject=Photography%20inquiry">Inquire</a>
         </section>
     </main>
 
