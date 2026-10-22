@@ -46,16 +46,20 @@
             align-self: center;
             position: relative;
         }
-        .identity::before {
+        h1 span:first-child {
+            position: relative;
+            width: fit-content;
+        }
+        h1 span:first-child::after {
             border: 1px solid rgba(201, 243, 106, .32);
             border-radius: 50%;
             content: '';
-            height: clamp(110px, 19vw, 250px);
+            height: 1.4em;
             position: absolute;
-            right: 4%;
-            top: 8%;
+            right: -.15em;
+            top: -.18em;
             transform: rotate(-24deg) scaleX(.44);
-            width: clamp(110px, 19vw, 250px);
+            width: 1.4em;
         }
         h1 {
             font-family: 'Manrope', Arial, sans-serif;
@@ -120,12 +124,6 @@
                 gap: clamp(52px, 12vh, 110px);
                 grid-template-columns: minmax(0, 1fr);
                 padding: clamp(44px, 11vw, 84px) clamp(24px, 8vw, 56px);
-            }
-            .identity::before {
-                height: clamp(110px, 28vw, 190px);
-                right: 7%;
-                top: -12%;
-                width: clamp(110px, 28vw, 190px);
             }
             h1 { font-size: clamp(4.6rem, 19vw, 8.5rem); }
             .portfolio-nav a { min-height: 76px; }
