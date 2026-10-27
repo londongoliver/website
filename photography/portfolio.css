@@ -56,6 +56,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .wordmark { color: #292824; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .wordmark span { color: var(--muted); font-weight: 400; }
 .site-nav { align-items: center; display: flex; gap: clamp(16px, 3vw, 42px); }
+.nav-toggle { display: none; }
 .site-nav > a { color: #35332f; font-weight: 600; text-decoration: none; transition: color .2s ease; }
 .site-nav > a:hover, .site-nav > a:focus-visible { color: var(--accent); }
 .site-nav > a[aria-current="page"] {
@@ -91,9 +92,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
     right: -12px;
     top: 100%;
 }
-.portfolio-menu[open] .portfolio-dropdown,
-.portfolio-menu:hover .portfolio-dropdown,
-.portfolio-menu:focus-within .portfolio-dropdown { display: grid; }
+.portfolio-menu[open] .portfolio-dropdown { display: grid; }
+@media (hover: hover) and (pointer: fine) {
+    .portfolio-menu:hover .portfolio-dropdown { display: grid; }
+}
 .portfolio-dropdown a {
     color: #35332f;
     display: block;
@@ -344,6 +346,19 @@ body:not(.landing-page) main { padding-top: 68px; }
 .footer-links { display: flex; gap: 22px; }
 .footer-links a { text-decoration: none; }
 .footer-links a:hover { color: var(--ink); }
+.instagram-link { align-items: center; display: inline-flex; }
+.instagram-icon {
+    fill: none;
+    height: 22px;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+    transition: color .2s ease;
+    width: 22px;
+}
+.instagram-icon-dot { fill: currentColor; stroke: none; }
+.instagram-link:hover .instagram-icon { color: var(--accent); }
 
 dialog {
     background: #111;
@@ -372,8 +387,60 @@ dialog img { display: block; height: 100%; max-width: 90vw; object-fit: contain;
 }
 
 @media (max-width: 760px) {
-    .site-header { align-items: flex-start; gap: 20px; }
-    .site-nav { flex-wrap: wrap; gap: 12px 18px; justify-content: flex-end; }
+    .site-header { align-items: center; gap: 20px; }
+    .nav-toggle {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        color: #35332f;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        height: 40px;
+        justify-content: center;
+        margin-left: auto;
+        padding: 8px;
+        width: 40px;
+    }
+    .nav-toggle span {
+        background: currentColor;
+        display: block;
+        height: 1px;
+        transition: transform .2s ease, opacity .2s ease;
+        width: 22px;
+    }
+    .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+    .site-nav {
+        align-items: stretch;
+        background: #fff;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        left: 0;
+        padding: 8px clamp(20px, 6vw, 92px) 20px;
+        position: absolute;
+        right: 0;
+        top: 100%;
+    }
+    .site-nav.is-open { display: flex; }
+    .site-nav > a, .portfolio-menu summary {
+        display: block;
+        font-size: .72rem;
+        padding: 14px 0;
+    }
+    .site-nav > a[aria-current="page"] { padding-bottom: 14px; }
+    .portfolio-menu { padding: 0; }
+    .portfolio-dropdown {
+        min-width: 0;
+        padding: 0 0 8px 14px;
+        position: static;
+    }
+    .portfolio-menu:hover .portfolio-dropdown { display: none; }
+    .portfolio-menu[open]:hover .portfolio-dropdown { display: grid; }
+    .portfolio-dropdown a { font-size: .66rem; padding: 12px; }
     .site-nav > a, .portfolio-menu summary { font-size: .72rem; }
     .gallery { gap: 18px; }
     .photo:nth-child(even) { margin-top: 28px; }
