@@ -31,17 +31,41 @@
     <main class="landing-main">
         <section class="hero-carousel" aria-label="Featured photography" aria-roledescription="carousel">
             <div class="hero-slides">
-                <figure class="hero-slide is-active" aria-roledescription="slide" aria-label="1 of 4">
-                    <img src="images/white-suit-portrait.jpg" alt="Portrait in a white blazer against sculptural architecture">
+                <figure class="hero-slide is-active" aria-roledescription="slide" aria-label="1 of 6">
+                    <picture>
+                        <source media="(max-width: 760px)" srcset="images/sm/white-blazer-architecture.webp">
+                        <img src="images/lg/white-blazer-architecture.webp" alt="White blazer portrait against sculptural architecture">
+                    </picture>
                 </figure>
-                <figure class="hero-slide hero-slide-fashion" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true">
-                    <img src="images/black-dress-editorial.jpg" alt="Fashion portrait in a black dress" loading="lazy">
+                <figure class="hero-slide hero-slide-fashion" aria-roledescription="slide" aria-label="2 of 6" aria-hidden="true">
+                    <picture>
+                        <source media="(max-width: 760px)" srcset="images/sm/zoo.webp">
+                        <img src="images/lg/zoo.webp" alt="Fashion portrait in an animal-print outfit in a stone passageway" loading="lazy">
+                    </picture>
                 </figure>
-                <figure class="hero-slide" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true">
-                    <img src="images/street-tunnel.jpg" alt="Concrete pedestrian tunnel opening into bright light" loading="lazy">
+                <figure class="hero-slide" aria-roledescription="slide" aria-label="3 of 6" aria-hidden="true">
+                    <picture>
+                        <source media="(max-width: 760px)" srcset="images/sm/portrait-against-wall.webp">
+                        <img src="images/lg/portrait-against-wall.webp" alt="Portrait against a wall" loading="lazy">
+                    </picture>
                 </figure>
-                <figure class="hero-slide hero-slide-events" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true">
-                    <img src="images/film-event-portrait.jpg" alt="Portrait at a film premiere" loading="lazy">
+                <figure class="hero-slide" aria-roledescription="slide" aria-label="4 of 6" aria-hidden="true">
+                    <picture>
+                        <source media="(max-width: 760px)" srcset="images/sm/hooray.webp">
+                        <img src="images/lg/hooray.webp" alt="Portrait in an animal-print outfit by a stone wall" loading="lazy">
+                    </picture>
+                </figure>
+                <figure class="hero-slide" aria-roledescription="slide" aria-label="5 of 6" aria-hidden="true">
+                    <picture>
+                        <source media="(max-width: 760px)" srcset="images/sm/graffiti.webp">
+                        <img src="images/lg/graffiti.webp" alt="Street portrait against a colorful graffiti-covered wall" loading="lazy">
+                    </picture>
+                </figure>
+                <figure class="hero-slide hero-slide-events" aria-roledescription="slide" aria-label="6 of 6" aria-hidden="true">
+                    <picture>
+                        <source media="(max-width: 760px)" srcset="images/sm/nero.webp">
+                        <img src="images/lg/nero.webp" alt="Portrait at a film premiere" loading="lazy">
+                    </picture>
                 </figure>
             </div>
             <div class="hero-controls" aria-label="Carousel controls">
@@ -50,6 +74,8 @@
                     <button class="hero-dot" type="button" aria-label="Show slide 2"></button>
                     <button class="hero-dot" type="button" aria-label="Show slide 3"></button>
                     <button class="hero-dot" type="button" aria-label="Show slide 4"></button>
+                    <button class="hero-dot" type="button" aria-label="Show slide 5"></button>
+                    <button class="hero-dot" type="button" aria-label="Show slide 6"></button>
                 </div>
             </div>
             <span class="hero-scroll-hint" aria-hidden="true">Scroll to explore <span>&darr;</span></span>
@@ -57,7 +83,10 @@
 
         <section class="category-section" aria-label="Photography portfolios">
             <a class="category-card category-headshots" href="portrait/">
-                <img src="images/portrait-studio.jpg" alt="Headshot leaning against a textured stone wall" loading="lazy">
+                <picture>
+                    <source media="(max-width: 760px)" srcset="images/sm/white-blazer-architecture.webp">
+                    <img src="images/lg/white-blazer-architecture.webp" alt="White blazer portrait against sculptural architecture" loading="lazy">
+                </picture>
                 <span class="category-card-label"><span>Headshots</span><span class="category-card-more">See more</span></span>
             </a>
             <a class="category-card category-fashion" href="fashion/">
@@ -69,7 +98,7 @@
                 <span class="category-card-label"><span>Street</span><span class="category-card-more">See more</span></span>
             </a>
             <a class="category-card category-events" href="events/">
-                <img src="images/film-event-portrait.jpg" alt="Portrait at a film premiere" loading="lazy">
+                <img src="images/nero_large.webp" alt="Portrait at a film premiere" loading="lazy">
                 <span class="category-card-label"><span>Events</span><span class="category-card-more">See more</span></span>
             </a>
         </section>
