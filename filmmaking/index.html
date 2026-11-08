@@ -82,7 +82,6 @@
             margin: 0;
             text-transform: uppercase;
         }
-        .eyebrow::before { background: var(--accent); content: ''; height: 1px; width: 24px; }
         h1, h2, h3 { font-family: 'Manrope', Arial, sans-serif; }
         h1 {
             font-size: clamp(1.25rem, 2.7vw, 2.2rem);
@@ -204,17 +203,15 @@
         .video-frame iframe { aspect-ratio: 16 / 9; border: 0; display: block; height: 100%; position: absolute; width: 100%; z-index: 2; }
         .video-caption {
             align-items: baseline;
-            border-bottom: 1px solid var(--line);
             display: flex;
             gap: 12px;
             justify-content: space-between;
             padding: 15px 1px 14px;
         }
         .video-caption h3 { font-size: clamp(.94rem, 1.45vw, 1.16rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.35; margin: 0; }
-        .video-caption p { color: var(--muted); font-size: .63rem; letter-spacing: .1em; margin: 0; text-align: right; text-transform: uppercase; }
+        .video-caption p { color: var(--muted); font-size: .72rem; letter-spacing: .08em; margin: 0; }
 
         .about-work {
-            border-top: 1px solid var(--line);
             display: grid;
             gap: 32px;
             grid-template-columns: minmax(130px, .7fr) minmax(0, 1.3fr);
@@ -225,21 +222,22 @@
         .about-work-copy { color: var(--muted); font-size: clamp(.94rem, 1.5vw, 1.12rem); line-height: 1.8; margin: 0; max-width: 40rem; }
         .contact {
             align-items: center;
-            background: var(--surface);
-            border: 1px solid var(--line);
+            background: transparent;
             display: flex;
             gap: 30px;
-            justify-content: space-between;
+            justify-content: center;
             margin-bottom: clamp(72px, 10vw, 132px);
-            padding: clamp(30px, 6vw, 72px);
+            padding: 0;
+            text-align: center;
         }
         .contact-copy .eyebrow { margin-bottom: 18px; }
+        .contact-copy { text-align: center; width: 100%; }
         .contact h2 {
             font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 700;
             letter-spacing: -.07em;
             line-height: .98;
-            margin: 0;
+            margin: 0 auto;
             max-width: 12ch;
         }
         .contact-link {
@@ -260,7 +258,7 @@
         .contact-link::after { content: '↗'; font-size: 1.1rem; }
         .contact-link:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 
-        .site-footer { border-top: 1px solid var(--line); color: var(--muted); }
+        .site-footer { color: var(--muted); }
         .footer-inner {
             align-items: center;
             display: flex;
@@ -302,14 +300,12 @@
         <a class="identity" href="/" aria-label="London Oliver home">London Oliver</a>
         <nav class="main-nav" aria-label="Main navigation">
             <a href="/photography/">Photography</a>
-            <a href="/music/">Music</a>
-            <a href="/filmmaking/" aria-current="page">Filmmaking</a>
-            <a href="/acting/">Acting</a>
         </nav>
     </header>
 
     <main>
         <section class="work" id="work" aria-labelledby="work-title">
+            <h2 class="section-heading" style="margin-bottom: 18px;">Music Videos</h2>
             <div class="video-grid">
                 <article class="video-card">
                     <div class="video-frame">
@@ -321,7 +317,7 @@
                     <div class="video-caption">
                         <div>
                             <h3>Fancy — “Meant to Be”</h3>
-                            <p>Filmmaker - Director - Post-Production</p>
+                            <p>2026</p>
                         </div>
                     </div>
                 </article>
@@ -335,42 +331,40 @@
                     <div class="video-caption">
                         <div>
                             <h3>Fancy — “I Could Fall in Love”</h3>
-                            <p>Filmmaker - Director - Post-Production</p>
+                            <p>2025</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="video-card">
+                    <div class="video-frame">
+                        <a class="video-poster" href="https://youtu.be/sqKANcfLyDk?si=1Yl8BLC1HSRjYxYv" data-video-id="sqKANcfLyDk" data-video-title="Sugar Panda - &quot;Broken World&quot;" aria-label="Play Sugar Panda - Broken World">
+                            <img src="https://i.ytimg.com/vi/sqKANcfLyDk/hqdefault.jpg" alt="" loading="lazy">
+                            <span class="play-button" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="video-caption">
+                        <div>
+                            <h3>Sugar Panda - “Broken World”</h3>
+                            <p>2026</p>
                         </div>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section class="hero" aria-labelledby="page-title">
-            <p class="eyebrow">London Oliver &nbsp; / &nbsp; Filmmaking</p>
-            <h1 id="page-title">Film &amp; video</h1>
-            <div class="hero-bottom">
-                <p class="hero-copy">Bringing image, performance, and feeling together to build a world around every song.</p>
-                <span class="hero-index">01—02 &nbsp; / &nbsp; Film</span>
-            </div>
-        </section>
-
-        <section class="about-work" aria-label="About the work">
-            <p class="eyebrow">A point of view</p>
-            <p class="about-work-copy">Drawn to visual storytelling that creates a mood, brings a song to life, and gives the audience a reason to stay in the frame.</p>
-        </section>
-
         <section class="contact" aria-labelledby="contact-title">
             <div class="contact-copy">
-                <p class="eyebrow">For the next story</p>
-                <h2 id="contact-title">Have a project in mind?</h2>
+                <h2 id="contact-title">Contact</h2>
+                <p>Message me on Instagram: <a href="https://www.instagram.com/londonoliverphotography" target="_blank" rel="noopener noreferrer">@londonoliverphotography</a></p>
             </div>
-            <a class="contact-link" href="mailto:londongoliver@gmail.com?subject=Filmmaking%20inquiry">Let’s talk</a>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
-            <span>&copy; 2026 London Oliver</span>
+            <span>Copyright © 2026 London Oliver</span>
             <nav class="social-links" aria-label="Social links">
-                <a href="https://www.instagram.com/londonoliver" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.imdb.com/name/nm18956927/" target="_blank" rel="noopener noreferrer">IMDb</a>
+                <a href="https://www.instagram.com/londonoliverphotography" target="_blank" rel="noopener noreferrer">Instagram</a>
             </nav>
         </div>
     </footer>
