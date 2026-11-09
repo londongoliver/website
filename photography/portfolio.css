@@ -293,7 +293,7 @@ body:not(.landing-page) main { padding-top: 68px; }
     display: grid;
     align-items: start;
     gap: clamp(20px, 4vw, 64px);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0;
 }
 .photo { margin: 0; min-width: 0; }
@@ -313,10 +313,8 @@ body:not(.landing-page) main { padding-top: 68px; }
     display: block;
     height: auto;
     max-width: 100%;
-    transition: transform .65s cubic-bezier(.2, .7, .2, 1);
     width: auto;
 }
-.photo-button:hover img, .photo-button:focus-visible img { transform: scale(1.025); }
 
 .contact {
     align-items: center;
@@ -445,7 +443,7 @@ dialog img { display: block; height: 100%; max-width: 90vw; object-fit: contain;
     .portfolio-menu[open]:hover .portfolio-dropdown { display: grid; }
     .portfolio-dropdown a { font-size: .66rem; padding: 12px; }
     .site-nav > a, .portfolio-menu summary { font-size: .72rem; }
-    .gallery { gap: 18px; }
+    .gallery { gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .photo:nth-child(even) { margin-top: 28px; }
     .hero-scroll-hint { display: none; }
 }
